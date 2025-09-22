@@ -22,7 +22,7 @@ OctInteger    = 0[0-7]+
 IntLiteral    = {DecInteger}|{HexInteger}|{OctInteger}
 CharLiteral   = \'([^\'\\]|\\[btnfr\"\'\\])\'
 StringLiteral = \"([^\"\\]|\\[btnfr\"\'\\])*\"
-
+Classe = [A-Z][a-zA-Z0-9]*
 
 %%
 
@@ -36,12 +36,15 @@ StringLiteral = \"([^\"\\]|\\[btnfr\"\'\\])*\"
 "/*"([^*]|\*+[^*/])*\*+"/" { /* ignora */ }
 
 /* Palavras-chave */
+"package"      { return new Token(Symbol.PACKAGE, yyline+1, yycolumn+1); }
+"import"      { return new Token(Symbol.IMPORT, yyline+1, yycolumn+1); }
 "class"      { return new Token(Symbol.CLASS, yyline+1, yycolumn+1); }
 "extends"    { return new Token(Symbol.EXTENDS, yyline+1, yycolumn+1); }
 "public"     { return new Token(Symbol.PUBLIC, yyline+1, yycolumn+1); }
 "static"     { return new Token(Symbol.STATIC, yyline+1, yycolumn+1); }
 "native"     { return new Token(Symbol.NATIVE, yyline+1, yycolumn+1); }
 "void"       { return new Token(Symbol.VOID, yyline+1, yycolumn+1); }
+"main"       { return new Token(Symbol.MAIN, yyline+1, yycolumn+1); }
 "return"     { return new Token(Symbol.RETURN, yyline+1, yycolumn+1); }
 "if"         { return new Token(Symbol.IF, yyline+1, yycolumn+1); }
 "else"       { return new Token(Symbol.ELSE, yyline+1, yycolumn+1); }
@@ -53,11 +56,16 @@ StringLiteral = \"([^\"\\]|\\[btnfr\"\'\\])*\"
 "this"       { return new Token(Symbol.THIS, yyline+1, yycolumn+1); }
 "super"      { return new Token(Symbol.SUPER, yyline+1, yycolumn+1); }
 "new"        { return new Token(Symbol.NEW, yyline+1, yycolumn+1); }
+"null"       { return new Token(Symbol.NULL, yyline+1, yycolumn+1); }
+"true"       { return new Token(Symbol.TRUE, true, yyline+1, yycolumn+1); }
+"false"      { return new Token(Symbol.FALSE, false, yyline+1, yycolumn+1); }
+
+/* Tipos Primitivos */
 "int"        { return new Token(Symbol.INT, yyline+1, yycolumn+1); }
 "boolean"    { return new Token(Symbol.BOOLEAN, yyline+1, yycolumn+1); }
-"true"       { return new Token(Symbol.INTEGER, true, yyline+1, yycolumn+1); }
-"false"      { return new Token(Symbol.INTEGER, false, yyline+1, yycolumn+1); }
-"null"       { return new Token(Symbol.NULL, yyline+1, yycolumn+1); }
+
+/* Tipos Referenciais */
+{Classe}       { return new Token(Symbol.CLASS, yyline+1, yycolumn+1); }
 
 /* Literais */
 {IntLiteral}    { return new Token(Symbol.INTEGER, Integer.decode(yytext()), yyline+1, yycolumn+1); }

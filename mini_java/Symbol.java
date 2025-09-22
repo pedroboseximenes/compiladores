@@ -1,11 +1,14 @@
 public enum Symbol {
     /* Palavras-chave */
+    PACKAGE("PACKAGE"),
+    IMPORT("IMPORT"),
     CLASS("CLASS"),
     EXTENDS("EXTENDS"),
     PUBLIC("PUBLIC"),
     STATIC("STATIC"),
     NATIVE("NATIVE"),
     VOID("VOID"),
+    MAIN("MAIN"),
     RETURN("RETURN"),
     IF("IF"),
     ELSE("ELSE"),
@@ -20,6 +23,8 @@ public enum Symbol {
     INT("INT"),
     BOOLEAN("BOOLEAN"),
     NULL("NULL"),
+    TRUE("TRUE"),
+    FALSE("FALSE"),
 
     /* Literais */
     INTEGER("INTEGER"),
