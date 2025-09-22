@@ -5,7 +5,7 @@
  * <a href="http://www.jflex.de/">JFlex</a> 1.7.0
  * from the specification file <tt>calculadora.flex</tt>
  */
-class Yylex {
+class Calculadora {
 
   /** This character denotes the end of file */
   public static final int YYEOF = -1;
@@ -33,7 +33,7 @@ class Yylex {
    * Translates characters to character classes
    */
   private static final String ZZ_CMAP_PACKED = 
-    "\12\0\1\0\35\0\1\0\1\0\1\4\1\3\1\0\1\3\1\2"+
+    "\12\0\1\6\35\0\1\0\1\0\1\4\1\3\1\0\1\3\1\2"+
     "\1\5\12\1\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffd6\0";
 
   /** 
@@ -48,10 +48,10 @@ class Yylex {
 
   private static final String ZZ_ACTION_PACKED_0 =
     "\4\0\1\1\1\2\3\3\1\4\3\5\1\6\3\7"+
-    "\1\10\3\11\4\0\1\2\1\4\1\6\1\10";
+    "\1\10\3\11\1\12\4\0\1\2\1\4\1\6\1\10";
 
   private static int [] zzUnpackAction() {
-    int [] result = new int[29];
+    int [] result = new int[30];
     int offset = 0;
     offset = zzUnpackAction(ZZ_ACTION_PACKED_0, offset, result);
     return result;
@@ -76,13 +76,13 @@ class Yylex {
   private static final int [] ZZ_ROWMAP = zzUnpackRowMap();
 
   private static final String ZZ_ROWMAP_PACKED_0 =
-    "\0\0\0\6\0\14\0\22\0\30\0\36\0\30\0\44"+
-    "\0\52\0\60\0\30\0\66\0\74\0\102\0\30\0\110"+
-    "\0\116\0\124\0\30\0\132\0\140\0\146\0\154\0\162"+
-    "\0\170\0\146\0\154\0\162\0\170";
+    "\0\0\0\7\0\16\0\25\0\34\0\43\0\34\0\52"+
+    "\0\61\0\70\0\34\0\77\0\106\0\115\0\34\0\124"+
+    "\0\133\0\142\0\34\0\151\0\160\0\34\0\167\0\176"+
+    "\0\205\0\214\0\167\0\176\0\205\0\214";
 
   private static int [] zzUnpackRowMap() {
-    int [] result = new int[29];
+    int [] result = new int[30];
     int offset = 0;
     offset = zzUnpackRowMap(ZZ_ROWMAP_PACKED_0, offset, result);
     return result;
@@ -105,17 +105,17 @@ class Yylex {
   private static final int [] ZZ_TRANS = zzUnpackTrans();
 
   private static final String ZZ_TRANS_PACKED_0 =
-    "\1\5\1\6\1\5\1\7\1\10\1\11\1\5\1\12"+
-    "\1\5\1\13\1\14\1\15\1\5\1\16\1\5\1\17"+
-    "\1\20\1\21\1\5\1\22\1\5\1\23\1\24\1\25"+
-    "\7\0\1\6\1\26\7\0\1\7\6\0\1\7\1\0"+
-    "\1\12\1\27\7\0\1\13\6\0\1\13\1\0\1\16"+
-    "\1\30\7\0\1\17\6\0\1\17\1\0\1\22\1\31"+
-    "\7\0\1\23\6\0\1\23\1\0\1\32\5\0\1\33"+
-    "\5\0\1\34\5\0\1\35\4\0";
+    "\1\5\1\6\1\5\1\7\1\10\1\11\2\5\1\12"+
+    "\1\5\1\13\1\14\1\15\2\5\1\16\1\5\1\17"+
+    "\1\20\1\21\2\5\1\22\1\5\1\23\1\24\1\25"+
+    "\1\26\10\0\1\6\1\27\10\0\1\7\7\0\1\7"+
+    "\2\0\1\12\1\30\10\0\1\13\7\0\1\13\2\0"+
+    "\1\16\1\31\10\0\1\17\7\0\1\17\2\0\1\22"+
+    "\1\32\10\0\1\23\7\0\1\23\2\0\1\33\6\0"+
+    "\1\34\6\0\1\35\6\0\1\36\5\0";
 
   private static int [] zzUnpackTrans() {
-    int [] result = new int[126];
+    int [] result = new int[147];
     int offset = 0;
     offset = zzUnpackTrans(ZZ_TRANS_PACKED_0, offset, result);
     return result;
@@ -154,10 +154,10 @@ class Yylex {
 
   private static final String ZZ_ATTRIBUTE_PACKED_0 =
     "\4\0\1\11\1\1\1\11\3\1\1\11\3\1\1\11"+
-    "\3\1\1\11\2\1\4\0\4\1";
+    "\3\1\1\11\2\1\1\11\4\0\4\1";
 
   private static int [] zzUnpackAttribute() {
-    int [] result = new int[29];
+    int [] result = new int[30];
     int offset = 0;
     offset = zzUnpackAttribute(ZZ_ATTRIBUTE_PACKED_0, offset, result);
     return result;
@@ -238,7 +238,7 @@ class Yylex {
    *
    * @param   in  the java.io.Reader to read input from.
    */
-  Yylex(java.io.Reader in) {
+  Calculadora(java.io.Reader in) {
     this.zzReader = in;
   }
 
@@ -547,7 +547,7 @@ class Yylex {
             case QNUMERO: {
               throw new RuntimeException("[EOF] Expressão inválida.");
             }  // fall though
-            case 30: break;
+            case 31: break;
             default:
         return YYEOF;
         }
@@ -558,51 +558,56 @@ class Yylex {
             { System.out.print(yytext());
             } 
             // fall through
-          case 10: break;
+          case 11: break;
           case 2: 
-            { System.out.println("NUMERO: " + yytext());
+            { System.out.println("Numero: " + yytext());
         yybegin(OPERACAO);
             } 
             // fall through
-          case 11: break;
+          case 12: break;
           case 3: 
             { throw new RuntimeException("Caractere inválido: " + yytext());
             } 
             // fall through
-          case 12: break;
+          case 13: break;
           case 4: 
             { throw new RuntimeException("[OPERACAO] Caractere inválido: " + yytext());
             } 
             // fall through
-          case 13: break;
+          case 14: break;
           case 5: 
             { System.out.println("Operador: " + yytext());
         yybegin(QNUMERO);
             } 
             // fall through
-          case 14: break;
+          case 15: break;
           case 6: 
             { System.out.println("Numero: " + yytext());
         yybegin(QFINAL);
             } 
             // fall through
-          case 15: break;
+          case 16: break;
           case 7: 
             { throw new RuntimeException("[QNUMERO] Caractere inválido: " + yytext());
             } 
             // fall through
-          case 16: break;
+          case 17: break;
           case 8: 
             { throw new RuntimeException("[QFINAL] Caractere inválido: " + yytext());
             } 
             // fall through
-          case 17: break;
+          case 18: break;
           case 9: 
             { System.out.println("Numero: " + yytext());
         yybegin(QNUMERO);
             } 
             // fall through
-          case 18: break;
+          case 19: break;
+          case 10: 
+            { yybegin(YYINITIAL);
+            } 
+            // fall through
+          case 20: break;
           default:
             zzScanError(ZZ_NO_MATCH);
         }
@@ -621,7 +626,7 @@ class Yylex {
    */
   public static void main(String argv[]) {
     if (argv.length == 0) {
-      System.out.println("Usage : java Yylex [ --encoding <name> ] <inputfile(s)>");
+      System.out.println("Usage : java Calculadora [ --encoding <name> ] <inputfile(s)>");
     }
     else {
       int firstFilePos = 0;
@@ -637,11 +642,11 @@ class Yylex {
         }
       }
       for (int i = firstFilePos; i < argv.length; i++) {
-        Yylex scanner = null;
+        Calculadora scanner = null;
         try {
           java.io.FileInputStream stream = new java.io.FileInputStream(argv[i]);
           java.io.Reader reader = new java.io.InputStreamReader(stream, encodingName);
-          scanner = new Yylex(reader);
+          scanner = new Calculadora(reader);
           while ( !scanner.zzAtEOF ) scanner.yylex();
         }
         catch (java.io.FileNotFoundException e) {
