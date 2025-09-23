@@ -65,8 +65,13 @@ public enum Symbol {
     ABRE_COLCHETES("ABRE_COLCHETES"), // [
     FECHA_COLCHETES("FECHA_COLCHETES"), // ]
 
+    /* Calculadora */
+    NUMERO("NUMERO"),
+    OPERACAO("OPERACAO"),
     /* Fim de arquivo */
-    EOF("EOF");
+    EOF("EOF"),
+     /* Erro ao encontrar token */
+    ERRO("ERRO");
 
     private final String tokenName;
 

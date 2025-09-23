@@ -113,4 +113,4 @@ Classe = [A-Z][a-zA-Z0-9]*
 . { System.err.println("Caractere inválido: " + yytext() +
                        " na linha " + (yyline+1) +
                        ", coluna " + (yycolumn+1)); 
-    return new Token(Symbol.NULL, yyline+1, yycolumn+1); }
+    return new Token(Symbol.ERRO, yyline+1, yycolumn+1); }

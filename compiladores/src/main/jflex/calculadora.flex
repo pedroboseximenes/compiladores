@@ -1,30 +1,42 @@
+import utils.Token;
+import utils.Symbol;
 %%
 %public
 %class Calculadora
 %standalone
+%line
+%column
+%type Token 
 
 Digito        = [0-9]
 Numero        = {Digito}+(\.{Digito}+)?
 Operadores    = (\+|\-|\*|\/|\/\/|\*\*)
 AbreParenteses = \(
 FechaParenteses = \)
-Espaco        = [ \t]
-NovaLinha     = \n
+WhiteSpace    = [ \t\r\n\f]+
 
 %%
+{WhiteSpace}          { /* ignora */ }
 
 {Numero} { 
-    System.out.println("NUMERO: " + yytext()); 
+   return new Token(Symbol.NUMERO, yyline+1, yycolumn+1); 
 }
 
 {Operadores} { 
-    System.out.println("OPERADOR: " + yytext()); 
+     return new Token(Symbol.OPERACAO, yyline+1, yycolumn+1);
 }
 
 {AbreParenteses} { 
-    System.out.println("ABRE_PARENTESES: " + yytext()); 
+     return new Token(Symbol.ABRE_PARENTESES, yyline+1, yycolumn+1);
 }
 
 {FechaParenteses} { 
-    System.out.println("FECHA_PARENTESES: " + yytext()); 
+    return new Token(Symbol.FECHA_PARENTESES, yyline+1, yycolumn+1);
 }
+
+<<EOF>> { return new Token(Symbol.EOF, yyline+1, yycolumn+1); }
+
+. { System.err.println("Caractere inválido: " + yytext() +
+                       " na linha " + (yyline+1) +
+                       ", coluna " + (yycolumn+1)); 
+    return new Token(Symbol.ERRO, yyline+1, yycolumn+1); }

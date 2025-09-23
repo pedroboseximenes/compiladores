@@ -6,7 +6,9 @@ import utils.Symbol;
 import utils.Token;
 
 public class Main {
-    
+    private static final int QUANTIDADE_TESTE_MINI_JAVA = 7;
+    private static final int QUANTIDADE_TESTE_CALCULADORA = 3;
+
     public static void main(String[] args) {
         if (args.length < 1) {
             System.err.println("Falta arquivo de entrada.txt");
@@ -14,7 +16,7 @@ public class Main {
         }
 
         try {
-            for(int i = 0; i < 1; i++){
+            for(int i = 0; i < QUANTIDADE_TESTE_MINI_JAVA; i++){
                 String nomeArquivo = "src/main/saida/saidaMiniJava0" + (i+1) +".txt";
                 FileWriter escritor = new FileWriter(nomeArquivo);
 
@@ -31,26 +33,23 @@ public class Main {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        /* TODO: CALCULADORA
         try {
-               for(int j = 0; j < 1; j++){
-                 String nomeArquivo = "src/main/saida/saidaMiniJava0" + (j+1) +".txt";
-                FileWriter escritor = new FileWriter(nomeArquivo);
+               for(int j = 0; j < QUANTIDADE_TESTE_CALCULADORA; j++){
+                    String nomeArquivo = "src/main/saida/saidaCalculadora0" + (j+1) +".txt";
+                    FileWriter escritor = new FileWriter(nomeArquivo);
 
-                Calculadora lexer = new Calculadora(new FileReader(args[j]));
-                Token token;
-                while ((token = lexer.yylex()) != null) {
-                    escritor.write(token.tipo.getTokenName() +"\n");
-                    System.out.println(token.tipo.getTokenName());
-                    if (token.tipo == Symbol.EOF)
-                        break;
-                }
-                escritor.close();
+                    Calculadora lexer = new Calculadora(new FileReader(args[j+QUANTIDADE_TESTE_MINI_JAVA]));
+                    Token token;
+                    while ((token = lexer.yylex()) != null) {
+                        escritor.write("Linha, Coluna <"+token.linha + ", "+ token.coluna  + "> "+token.tipo.getTokenName() +"\n");
+                        if (token.tipo == Symbol.EOF || token.tipo == Symbol.ERRO)
+                            break;
+                    }
+                    escritor.close();
             }
              
         } catch (Exception e) {
             e.printStackTrace();
         }
-        */
     }
 }

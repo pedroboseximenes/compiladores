@@ -1,0 +1,4 @@
+Linha, Coluna <2, 1> NUMERO
+Linha, Coluna <2, 3> OPERACAO
+Linha, Coluna <2, 5> NUMERO
+Linha, Coluna <3, 1> EOF
