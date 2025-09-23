@@ -1,0 +1,10 @@
+package br.code.uff
+public class SomaIterativa {
+
+    public static void main(String[] args) {
+        int valorInicial = 0;
+        for (int i = 0; i < 5; i++) {
+            valorInicial += 10;
+        }
+    }
+}
