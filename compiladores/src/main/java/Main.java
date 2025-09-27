@@ -23,7 +23,7 @@ public class Main {
                 MiniJava lexer = new MiniJava(new FileReader(args[i]));
                 Token token;
                 while ((token = lexer.yylex()) != null) {
-                    escritor.write("Linha, Coluna <"+token.linha + ", "+ token.coluna  + "> "+token.tipo.getTokenName() +"\n");
+                    escritor.write("Linha, Coluna <"+token.linha + ", "+ token.coluna  + "> valor: " + token.valor + " " +token.tipo.getTokenName() +"\n");
                     //System.out.println(token.tipo.getTokenName());
                     if (token.tipo == Symbol.EOF)
                         break;
@@ -36,16 +36,15 @@ public class Main {
         try {
                for(int j = 0; j < QUANTIDADE_TESTE_CALCULADORA; j++){
                     String nomeArquivo = "src/main/saida/saidaCalculadora0" + (j+1) +".txt";
-                    FileWriter escritor = new FileWriter(nomeArquivo);
-
-                    Calculadora lexer = new Calculadora(new FileReader(args[j+QUANTIDADE_TESTE_MINI_JAVA]));
-                    Token token;
-                    while ((token = lexer.yylex()) != null) {
-                        escritor.write("Linha, Coluna <"+token.linha + ", "+ token.coluna  + "> "+token.tipo.getTokenName() +"\n");
-                        if (token.tipo == Symbol.EOF || token.tipo == Symbol.ERRO)
-                            break;
-                    }
-                    escritor.close();
+                   try (FileWriter escritor = new FileWriter(nomeArquivo)) {
+                       Calculadora lexer = new Calculadora(new FileReader(args[j+QUANTIDADE_TESTE_MINI_JAVA]));
+                       Token token;
+                       while ((token = lexer.yylex()) != null) {
+                           escritor.write("Linha, Coluna <"+token.linha + ", "+ token.coluna  + "> "+token.tipo.getTokenName() +"\n");
+                           if (token.tipo == Symbol.EOF)
+                               break;
+                       }
+                   }
             }
              
         } catch (Exception e) {

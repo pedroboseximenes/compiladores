@@ -1,10 +1,10 @@
-package br.code.uff
-public class SomaIterativa {
-
+public class Good2 {
     public static void main(String[] args) {
-        int valorInicial = 0;
-        for (int i = 0; i < 5; i++) {
-            valorInicial += 10;
+        int sum = 0;
+        for (int j = 0; j < 10; j = j + 1) {
+            if (j < 5) {
+                sum = sum + j;
+            }
         }
     }
 }

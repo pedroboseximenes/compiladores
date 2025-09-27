@@ -2,8 +2,6 @@ package utils;
 
 public enum Symbol {
     /* Palavras-chave */
-    PACKAGE("PACKAGE"),
-    IMPORT("IMPORT"),
     CLASS("CLASS"),
     EXTENDS("EXTENDS"),
     PUBLIC("PUBLIC"),
@@ -11,7 +9,7 @@ public enum Symbol {
     NATIVE("NATIVE"),
     VOID("VOID"),
     MAIN("MAIN"),
-    RETURN("RETURN"),
+    RETURN("RETURN"),       
     IF("IF"),
     ELSE("ELSE"),
     WHILE("WHILE"),
@@ -27,7 +25,8 @@ public enum Symbol {
     NULL("NULL"),
     TRUE("TRUE"),
     FALSE("FALSE"),
-
+    ARRAY("ARRAY"),
+    CLASSNAME("CLASSNAME"),
     /* Literais */
     INTEGER("INTEGER"),
     CHAR("CHAR"),
