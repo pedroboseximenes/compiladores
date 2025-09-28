@@ -1,43 +1,45 @@
-Linha, Coluna <1, 1> valor: class CLASS
-Linha, Coluna <1, 7> valor: Bad2 CLASSNAME
-Linha, Coluna <1, 12> valor: { ABRE_CHAVES
-Linha, Coluna <2, 5> valor: public PUBLIC
-Linha, Coluna <2, 12> valor: static STATIC
-Linha, Coluna <2, 19> valor: void VOID
-Linha, Coluna <2, 24> valor: main MAIN
-Linha, Coluna <2, 28> valor: ( ABRE_PARENTESES
-Linha, Coluna <2, 29> valor: String CLASSNAME
-Linha, Coluna <2, 35> valor: [ ABRE_COLCHETES
-Linha, Coluna <2, 36> valor: ] FECHA_COLCHETES
-Linha, Coluna <2, 38> valor: args ID
-Linha, Coluna <2, 42> valor: ) FECHA_PARENTESES
-Linha, Coluna <2, 44> valor: { ABRE_CHAVES
-Linha, Coluna <3, 9> valor: int INT
-Linha, Coluna <3, 13> valor: # ERRO
-Linha, Coluna <3, 14> valor: value ID
-Linha, Coluna <3, 20> valor: = ATRIBUICAO
-Linha, Coluna <3, 22> valor: 10 INTEGER
-Linha, Coluna <3, 24> valor: ; PONTO_VIRGULA
-Linha, Coluna <4, 9> valor: for FOR
-Linha, Coluna <4, 13> valor: ( ABRE_PARENTESES
-Linha, Coluna <4, 14> valor: int INT
-Linha, Coluna <4, 18> valor: i ID
-Linha, Coluna <4, 20> valor: = ATRIBUICAO
-Linha, Coluna <4, 22> valor: 0 INTEGER
-Linha, Coluna <4, 23> valor: ; PONTO_VIRGULA
-Linha, Coluna <4, 25> valor: i ID
-Linha, Coluna <4, 27> valor: < MENOR
-Linha, Coluna <4, 29> valor: # ERRO
-Linha, Coluna <4, 30> valor: value ID
-Linha, Coluna <4, 35> valor: ; PONTO_VIRGULA
-Linha, Coluna <4, 37> valor: i ID
-Linha, Coluna <4, 39> valor: = ATRIBUICAO
-Linha, Coluna <4, 41> valor: i ID
-Linha, Coluna <4, 43> valor: + ADICAO
-Linha, Coluna <4, 45> valor: 1 INTEGER
-Linha, Coluna <4, 46> valor: ) FECHA_PARENTESES
-Linha, Coluna <4, 48> valor: { ABRE_CHAVES
-Linha, Coluna <6, 9> valor: } FECHA_CHAVES
-Linha, Coluna <7, 5> valor: } FECHA_CHAVES
-Linha, Coluna <8, 1> valor: } FECHA_CHAVES
-Linha, Coluna <8, 2> valor: EOF EOF
+<linha,coluna>  [Tipo]                     Valor
+------------------------------------------------------------
+<1, 1>          [CLASS]                   'class'
+<1, 7>          [CLASSNAME]               'Bad2'
+<1, 12>         [ABRE_CHAVES]             '{'
+<2, 5>          [PUBLIC]                  'public'
+<2, 12>         [STATIC]                  'static'
+<2, 19>         [VOID]                    'void'
+<2, 24>         [MAIN]                    'main'
+<2, 28>         [ABRE_PARENTESES]         '('
+<2, 29>         [CLASSNAME]               'String'
+<2, 35>         [ABRE_COLCHETES]          '['
+<2, 36>         [FECHA_COLCHETES]         ']'
+<2, 38>         [ID]                      'args'
+<2, 42>         [FECHA_PARENTESES]        ')'
+<2, 44>         [ABRE_CHAVES]             '{'
+<3, 9>          [PRIMITIVO TIPO]          'int'
+<3, 13>         [ERRO]                    '#'
+<3, 14>         [ID]                      'value'
+<3, 20>         [ATRIBUICAO]              '='
+<3, 22>         [INTEGER]                 '10'
+<3, 24>         [PONTO_VIRGULA]           ';'
+<4, 9>          [FOR]                     'for'
+<4, 13>         [ABRE_PARENTESES]         '('
+<4, 14>         [PRIMITIVO TIPO]          'int'
+<4, 18>         [ID]                      'i'
+<4, 20>         [ATRIBUICAO]              '='
+<4, 22>         [INTEGER]                 '0'
+<4, 23>         [PONTO_VIRGULA]           ';'
+<4, 25>         [ID]                      'i'
+<4, 27>         [MENOR]                   '<'
+<4, 29>         [ERRO]                    '#'
+<4, 30>         [ID]                      'value'
+<4, 35>         [PONTO_VIRGULA]           ';'
+<4, 37>         [ID]                      'i'
+<4, 39>         [ATRIBUICAO]              '='
+<4, 41>         [ID]                      'i'
+<4, 43>         [ADICAO]                  '+'
+<4, 45>         [INTEGER]                 '1'
+<4, 46>         [FECHA_PARENTESES]        ')'
+<4, 48>         [ABRE_CHAVES]             '{'
+<6, 9>          [FECHA_CHAVES]            '}'
+<7, 5>          [FECHA_CHAVES]            '}'
+<8, 1>          [FECHA_CHAVES]            '}'
+<8, 2>          [EOF]                     'EOF'

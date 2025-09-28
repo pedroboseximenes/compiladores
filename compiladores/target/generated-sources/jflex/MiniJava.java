@@ -107,11 +107,11 @@ public class MiniJava {
     "\7\26\1\43\1\44\2\26\1\45\11\26\1\2\4\26"+
     "\1\46\2\26\1\47\1\26\1\50\4\26\1\51\1\52"+
     "\1\53\2\26\1\54\1\55\2\26\1\56\4\26\1\57"+
-    "\1\60\3\26\1\61\1\62\1\63\1\64\1\65\1\26"+
-    "\1\66\1\67";
+    "\1\60\3\26\1\61\1\62\1\63\1\64\1\26\1\65"+
+    "\1\66";
 
   private static int [] zzUnpackAction() {
-    int [] result = new int[148];
+    int [] result = new int[147];
     int offset = 0;
     offset = zzUnpackAction(ZZ_ACTION_PACKED_0, offset, result);
     return result;
@@ -154,10 +154,10 @@ public class MiniJava {
     "\0\u135f\0\u031e\0\u031e\0\u031e\0\u1398\0\u13d1\0\u031e\0\u031e"+
     "\0\u140a\0\u1443\0\u031e\0\u147c\0\u14b5\0\u14ee\0\u1527\0\u031e"+
     "\0\u031e\0\u1560\0\u1599\0\u15d2\0\u031e\0\u031e\0\u031e\0\u031e"+
-    "\0\u031e\0\u160b\0\u031e\0\u031e";
+    "\0\u160b\0\u031e\0\u031e";
 
   private static int [] zzUnpackRowMap() {
-    int [] result = new int[148];
+    int [] result = new int[147];
     int offset = 0;
     offset = zzUnpackRowMap(ZZ_ROWMAP_PACKED_0, offset, result);
     return result;
@@ -274,10 +274,10 @@ public class MiniJava {
     "\3\0\3\33\1\216\23\33\23\0\3\33\6\0\3\33"+
     "\3\0\15\33\1\217\11\33\23\0\3\33\6\0\3\33"+
     "\3\0\3\33\1\220\23\33\23\0\3\33\6\0\3\33"+
-    "\3\0\15\33\1\221\11\33\23\0\3\33\6\0\3\33"+
-    "\3\0\23\33\1\222\3\33\23\0\3\33\6\0\3\33"+
-    "\3\0\21\33\1\223\5\33\23\0\3\33\6\0\3\33"+
-    "\3\0\5\33\1\224\21\33\3\0";
+    "\3\0\15\33\1\136\11\33\23\0\3\33\6\0\3\33"+
+    "\3\0\23\33\1\221\3\33\23\0\3\33\6\0\3\33"+
+    "\3\0\21\33\1\222\5\33\23\0\3\33\6\0\3\33"+
+    "\3\0\5\33\1\223\21\33\3\0";
 
   private static int [] zzUnpacktrans() {
     int [] result = new int[5700];
@@ -326,10 +326,10 @@ public class MiniJava {
     "\1\0\1\11\5\1\7\11\3\1\2\11\3\1\1\11"+
     "\1\1\2\11\17\1\1\11\1\1\2\11\1\0\1\11"+
     "\1\0\1\11\3\0\2\1\1\0\3\11\27\1\2\11"+
-    "\1\0\26\1\1\11\51\1";
+    "\1\0\26\1\1\11\50\1";
 
   private static int [] zzUnpackAttribute() {
-    int [] result = new int[148];
+    int [] result = new int[147];
     int offset = 0;
     offset = zzUnpackAttribute(ZZ_ATTRIBUTE_PACKED_0, offset, result);
     return result;
@@ -828,277 +828,272 @@ public class MiniJava {
     return new Token(Symbol.ERRO, yytext(), yyline+1, yycolumn+1);
             }
           // fall through
-          case 56: break;
+          case 55: break;
           case 2:
             { /* ignora */
             }
           // fall through
-          case 57: break;
+          case 56: break;
           case 3:
             { return new Token(Symbol.NAO, "!", yyline+1, yycolumn+1);
             }
           // fall through
-          case 58: break;
+          case 57: break;
           case 4:
             { return new Token(Symbol.ABRE_PARENTESES, yytext(), yyline+1, yycolumn+1);
             }
           // fall through
-          case 59: break;
+          case 58: break;
           case 5:
             { return new Token(Symbol.FECHA_PARENTESES, yytext(), yyline+1, yycolumn+1);
             }
           // fall through
-          case 60: break;
+          case 59: break;
           case 6:
             { return new Token(Symbol.MULTIPLICACAO, "*", yyline+1, yycolumn+1);
             }
           // fall through
-          case 61: break;
+          case 60: break;
           case 7:
             { return new Token(Symbol.ADICAO, "+", yyline+1, yycolumn+1);
             }
           // fall through
-          case 62: break;
+          case 61: break;
           case 8:
             { return new Token(Symbol.VIRGULA, yytext(), yyline+1, yycolumn+1);
             }
           // fall through
-          case 63: break;
+          case 62: break;
           case 9:
             { return new Token(Symbol.SUBTRACAO, "-", yyline+1, yycolumn+1);
             }
           // fall through
-          case 64: break;
+          case 63: break;
           case 10:
             { return new Token(Symbol.PONTO, yytext(), yyline+1, yycolumn+1);
             }
           // fall through
-          case 65: break;
+          case 64: break;
           case 11:
             { return new Token(Symbol.DIVISAO, "/", yyline+1, yycolumn+1);
             }
           // fall through
-          case 66: break;
+          case 65: break;
           case 12:
             { return new Token(Symbol.INTEGER, Integer.decode(yytext()), yyline+1, yycolumn+1);
             }
           // fall through
-          case 67: break;
+          case 66: break;
           case 13:
             { return new Token(Symbol.DOIS_PONTOS, ":", yyline+1, yycolumn+1);
             }
           // fall through
-          case 68: break;
+          case 67: break;
           case 14:
             { return new Token(Symbol.PONTO_VIRGULA, yytext(), yyline+1, yycolumn+1);
             }
           // fall through
-          case 69: break;
+          case 68: break;
           case 15:
             { return new Token(Symbol.MENOR, "<", yyline+1, yycolumn+1);
             }
           // fall through
-          case 70: break;
+          case 69: break;
           case 16:
             { return new Token(Symbol.ATRIBUICAO, "=", yyline+1, yycolumn+1);
             }
           // fall through
-          case 71: break;
+          case 70: break;
           case 17:
             { return new Token(Symbol.MAIOR, ">", yyline+1, yycolumn+1);
             }
           // fall through
-          case 72: break;
+          case 71: break;
           case 18:
             { return new Token(Symbol.INTERROGACAO, "?", yyline+1, yycolumn+1);
             }
           // fall through
-          case 73: break;
+          case 72: break;
           case 19:
             { return new Token(Symbol.CLASSNAME, yytext(), yyline+1, yycolumn+1);
             }
           // fall through
-          case 74: break;
+          case 73: break;
           case 20:
             { return new Token(Symbol.ABRE_COLCHETES, yytext(), yyline+1, yycolumn+1);
             }
           // fall through
-          case 75: break;
+          case 74: break;
           case 21:
             { return new Token(Symbol.FECHA_COLCHETES, yytext(), yyline+1, yycolumn+1);
             }
           // fall through
-          case 76: break;
+          case 75: break;
           case 22:
             { return new Token(Symbol.ID, yytext(), yyline+1, yycolumn+1);
             }
           // fall through
-          case 77: break;
+          case 76: break;
           case 23:
             { return new Token(Symbol.ABRE_CHAVES, yytext(), yyline+1, yycolumn+1);
             }
           // fall through
-          case 78: break;
+          case 77: break;
           case 24:
             { return new Token(Symbol.FECHA_CHAVES, yytext(), yyline+1, yycolumn+1);
             }
           // fall through
-          case 79: break;
+          case 78: break;
           case 25:
             { return new Token(Symbol.DIFERENTE, "!=", yyline+1, yycolumn+1);
             }
           // fall through
-          case 80: break;
+          case 79: break;
           case 26:
             { return new Token(Symbol.STRING, yytext().substring(1, yytext().length()-1), yyline+1, yycolumn+1);
             }
           // fall through
-          case 81: break;
+          case 80: break;
           case 27:
             { return new Token(Symbol.E, "&&", yyline+1, yycolumn+1);
             }
           // fall through
-          case 82: break;
+          case 81: break;
           case 28:
             { return new Token(Symbol.MENOR_OU_IGUAL, "<=", yyline+1, yycolumn+1);
             }
           // fall through
-          case 83: break;
+          case 82: break;
           case 29:
             { return new Token(Symbol.IGUAL, "==", yyline+1, yycolumn+1);
             }
           // fall through
-          case 84: break;
+          case 83: break;
           case 30:
             { return new Token(Symbol.MAIOR_OU_IGUAL, ">=", yyline+1, yycolumn+1);
             }
           // fall through
-          case 85: break;
+          case 84: break;
           case 31:
             { return new Token(Symbol.DO, "do", yyline+1, yycolumn+1);
             }
           // fall through
-          case 86: break;
+          case 85: break;
           case 32:
             { return new Token(Symbol.IF, "if", yyline+1, yycolumn+1);
             }
           // fall through
-          case 87: break;
+          case 86: break;
           case 33:
             { return new Token(Symbol.OU, "||", yyline+1, yycolumn+1);
             }
           // fall through
-          case 88: break;
+          case 87: break;
           case 34:
             { return new Token(Symbol.CHAR, yytext().charAt(1), yyline+1, yycolumn+1);
             }
           // fall through
-          case 89: break;
+          case 88: break;
           case 35:
             { return new Token(Symbol.FOR, "for", yyline+1, yycolumn+1);
             }
           // fall through
-          case 90: break;
+          case 89: break;
           case 36:
-            { return new Token(Symbol.INT, "int", yyline+1, yycolumn+1);
+            { return new Token(Symbol.PRIMITIVO, yytext(), yyline+1, yycolumn+1);
             }
           // fall through
-          case 91: break;
+          case 90: break;
           case 37:
             { return new Token(Symbol.NEW, "new", yyline+1, yycolumn+1);
             }
           // fall through
-          case 92: break;
+          case 91: break;
           case 38:
             { return new Token(Symbol.ELSE, "else", yyline+1, yycolumn+1);
             }
           // fall through
-          case 93: break;
+          case 92: break;
           case 39:
             { return new Token(Symbol.MAIN, "main", yyline+1, yycolumn+1);
             }
           // fall through
-          case 94: break;
+          case 93: break;
           case 40:
             { return new Token(Symbol.NULL, null, yyline+1, yycolumn+1);
             }
           // fall through
-          case 95: break;
+          case 94: break;
           case 41:
             { return new Token(Symbol.THIS, "this", yyline+1, yycolumn+1);
             }
           // fall through
-          case 96: break;
+          case 95: break;
           case 42:
             { return new Token(Symbol.TRUE, true, yyline+1, yycolumn+1);
             }
           // fall through
-          case 97: break;
+          case 96: break;
           case 43:
             { return new Token(Symbol.VOID, "void", yyline+1, yycolumn+1);
             }
           // fall through
-          case 98: break;
+          case 97: break;
           case 44:
             { return new Token(Symbol.BREAK, "break", yyline+1, yycolumn+1);
             }
           // fall through
-          case 99: break;
+          case 98: break;
           case 45:
             { return new Token(Symbol.CLASS, "class", yyline+1, yycolumn+1);
             }
           // fall through
-          case 100: break;
+          case 99: break;
           case 46:
             { return new Token(Symbol.FALSE, false, yyline+1, yycolumn+1);
             }
           // fall through
-          case 101: break;
+          case 100: break;
           case 47:
             { return new Token(Symbol.SUPER, "super", yyline+1, yycolumn+1);
             }
           // fall through
-          case 102: break;
+          case 101: break;
           case 48:
             { return new Token(Symbol.WHILE, "while", yyline+1, yycolumn+1);
             }
           // fall through
-          case 103: break;
+          case 102: break;
           case 49:
             { return new Token(Symbol.NATIVE, "native", yyline+1, yycolumn+1);
             }
           // fall through
-          case 104: break;
+          case 103: break;
           case 50:
             { return new Token(Symbol.PUBLIC, "public", yyline+1, yycolumn+1);
             }
           // fall through
-          case 105: break;
+          case 104: break;
           case 51:
             { return new Token(Symbol.RETURN, "return", yyline+1, yycolumn+1);
             }
           // fall through
-          case 106: break;
+          case 105: break;
           case 52:
             { return new Token(Symbol.STATIC, "static", yyline+1, yycolumn+1);
             }
           // fall through
-          case 107: break;
+          case 106: break;
           case 53:
-            { return new Token(Symbol.BOOLEAN, "boolean", yyline+1, yycolumn+1);
-            }
-          // fall through
-          case 108: break;
-          case 54:
             { return new Token(Symbol.EXTENDS, "extends", yyline+1, yycolumn+1);
             }
           // fall through
-          case 109: break;
-          case 55:
+          case 107: break;
+          case 54:
             { return new Token(Symbol.CONTINUE, "continue", yyline+1, yycolumn+1);
             }
           // fall through
-          case 110: break;
+          case 108: break;
           default:
             zzScanError(ZZ_NO_MATCH);
         }

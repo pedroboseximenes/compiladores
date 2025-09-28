@@ -1,102 +1,104 @@
-Linha, Coluna <1, 1> valor: class CLASS
-Linha, Coluna <1, 7> valor: Good3 CLASSNAME
-Linha, Coluna <1, 13> valor: { ABRE_CHAVES
-Linha, Coluna <2, 5> valor: public PUBLIC
-Linha, Coluna <2, 12> valor: static STATIC
-Linha, Coluna <2, 19> valor: void VOID
-Linha, Coluna <2, 24> valor: main MAIN
-Linha, Coluna <2, 28> valor: ( ABRE_PARENTESES
-Linha, Coluna <2, 29> valor: String CLASSNAME
-Linha, Coluna <2, 35> valor: [ ABRE_COLCHETES
-Linha, Coluna <2, 36> valor: ] FECHA_COLCHETES
-Linha, Coluna <2, 38> valor: args ID
-Linha, Coluna <2, 42> valor: ) FECHA_PARENTESES
-Linha, Coluna <2, 44> valor: { ABRE_CHAVES
-Linha, Coluna <3, 9> valor: int INT
-Linha, Coluna <3, 12> valor: [ ABRE_COLCHETES
-Linha, Coluna <3, 13> valor: ] FECHA_COLCHETES
-Linha, Coluna <3, 15> valor: arr ID
-Linha, Coluna <3, 19> valor: = ATRIBUICAO
-Linha, Coluna <3, 21> valor: { ABRE_CHAVES
-Linha, Coluna <3, 22> valor: 1 INTEGER
-Linha, Coluna <3, 23> valor: , VIRGULA
-Linha, Coluna <3, 25> valor: 2 INTEGER
-Linha, Coluna <3, 26> valor: , VIRGULA
-Linha, Coluna <3, 28> valor: 3 INTEGER
-Linha, Coluna <3, 29> valor: , VIRGULA
-Linha, Coluna <3, 31> valor: 4 INTEGER
-Linha, Coluna <3, 32> valor: } FECHA_CHAVES
-Linha, Coluna <3, 33> valor: ; PONTO_VIRGULA
-Linha, Coluna <4, 9> valor: int INT
-Linha, Coluna <4, 13> valor: idx ID
-Linha, Coluna <4, 17> valor: = ATRIBUICAO
-Linha, Coluna <4, 19> valor: 0 INTEGER
-Linha, Coluna <4, 20> valor: ; PONTO_VIRGULA
-Linha, Coluna <5, 9> valor: while WHILE
-Linha, Coluna <5, 15> valor: ( ABRE_PARENTESES
-Linha, Coluna <5, 16> valor: idx ID
-Linha, Coluna <5, 20> valor: < MENOR
-Linha, Coluna <5, 22> valor: arr ID
-Linha, Coluna <5, 25> valor: . PONTO
-Linha, Coluna <5, 26> valor: length ID
-Linha, Coluna <5, 32> valor: ) FECHA_PARENTESES
-Linha, Coluna <5, 34> valor: { ABRE_CHAVES
-Linha, Coluna <6, 13> valor: if IF
-Linha, Coluna <6, 16> valor: ( ABRE_PARENTESES
-Linha, Coluna <6, 17> valor: arr ID
-Linha, Coluna <6, 20> valor: [ ABRE_COLCHETES
-Linha, Coluna <6, 21> valor: idx ID
-Linha, Coluna <6, 24> valor: ] FECHA_COLCHETES
-Linha, Coluna <6, 26> valor: / DIVISAO
-Linha, Coluna <6, 28> valor: 2 INTEGER
-Linha, Coluna <6, 30> valor: == IGUAL
-Linha, Coluna <6, 33> valor: 0 INTEGER
-Linha, Coluna <6, 34> valor: ) FECHA_PARENTESES
-Linha, Coluna <6, 36> valor: { ABRE_CHAVES
-Linha, Coluna <8, 13> valor: } FECHA_CHAVES
-Linha, Coluna <8, 15> valor: else ELSE
-Linha, Coluna <8, 20> valor: { ABRE_CHAVES
-Linha, Coluna <9, 17> valor: arr ID
-Linha, Coluna <9, 20> valor: [ ABRE_COLCHETES
-Linha, Coluna <9, 21> valor: idx ID
-Linha, Coluna <9, 24> valor: ] FECHA_COLCHETES
-Linha, Coluna <9, 26> valor: = ATRIBUICAO
-Linha, Coluna <9, 28> valor: arr ID
-Linha, Coluna <9, 31> valor: [ ABRE_COLCHETES
-Linha, Coluna <9, 32> valor: idx ID
-Linha, Coluna <9, 35> valor: ] FECHA_COLCHETES
-Linha, Coluna <9, 37> valor: + ADICAO
-Linha, Coluna <9, 39> valor: 1 INTEGER
-Linha, Coluna <9, 40> valor: ; PONTO_VIRGULA
-Linha, Coluna <10, 13> valor: } FECHA_CHAVES
-Linha, Coluna <11, 13> valor: idx ID
-Linha, Coluna <11, 17> valor: = ATRIBUICAO
-Linha, Coluna <11, 19> valor: idx ID
-Linha, Coluna <11, 23> valor: + ADICAO
-Linha, Coluna <11, 25> valor: 1 INTEGER
-Linha, Coluna <11, 26> valor: ; PONTO_VIRGULA
-Linha, Coluna <12, 9> valor: } FECHA_CHAVES
-Linha, Coluna <14, 9> valor: for FOR
-Linha, Coluna <14, 13> valor: ( ABRE_PARENTESES
-Linha, Coluna <14, 14> valor: int INT
-Linha, Coluna <14, 18> valor: k ID
-Linha, Coluna <14, 20> valor: = ATRIBUICAO
-Linha, Coluna <14, 22> valor: 0 INTEGER
-Linha, Coluna <14, 23> valor: ; PONTO_VIRGULA
-Linha, Coluna <14, 25> valor: k ID
-Linha, Coluna <14, 27> valor: < MENOR
-Linha, Coluna <14, 29> valor: arr ID
-Linha, Coluna <14, 32> valor: . PONTO
-Linha, Coluna <14, 33> valor: length ID
-Linha, Coluna <14, 39> valor: ; PONTO_VIRGULA
-Linha, Coluna <14, 41> valor: k ID
-Linha, Coluna <14, 43> valor: = ATRIBUICAO
-Linha, Coluna <14, 45> valor: k ID
-Linha, Coluna <14, 47> valor: + ADICAO
-Linha, Coluna <14, 49> valor: 1 INTEGER
-Linha, Coluna <14, 50> valor: ) FECHA_PARENTESES
-Linha, Coluna <14, 52> valor: { ABRE_CHAVES
-Linha, Coluna <16, 9> valor: } FECHA_CHAVES
-Linha, Coluna <17, 5> valor: } FECHA_CHAVES
-Linha, Coluna <18, 1> valor: } FECHA_CHAVES
-Linha, Coluna <18, 2> valor: EOF EOF
+<linha,coluna>  [Tipo]                     Valor
+------------------------------------------------------------
+<1, 1>          [CLASS]                   'class'
+<1, 7>          [CLASSNAME]               'Good3'
+<1, 13>         [ABRE_CHAVES]             '{'
+<2, 5>          [PUBLIC]                  'public'
+<2, 12>         [STATIC]                  'static'
+<2, 19>         [VOID]                    'void'
+<2, 24>         [MAIN]                    'main'
+<2, 28>         [ABRE_PARENTESES]         '('
+<2, 29>         [CLASSNAME]               'String'
+<2, 35>         [ABRE_COLCHETES]          '['
+<2, 36>         [FECHA_COLCHETES]         ']'
+<2, 38>         [ID]                      'args'
+<2, 42>         [FECHA_PARENTESES]        ')'
+<2, 44>         [ABRE_CHAVES]             '{'
+<3, 9>          [PRIMITIVO TIPO]          'int'
+<3, 12>         [ABRE_COLCHETES]          '['
+<3, 13>         [FECHA_COLCHETES]         ']'
+<3, 15>         [ID]                      'arr'
+<3, 19>         [ATRIBUICAO]              '='
+<3, 21>         [ABRE_CHAVES]             '{'
+<3, 22>         [INTEGER]                 '1'
+<3, 23>         [VIRGULA]                 ','
+<3, 25>         [INTEGER]                 '2'
+<3, 26>         [VIRGULA]                 ','
+<3, 28>         [INTEGER]                 '3'
+<3, 29>         [VIRGULA]                 ','
+<3, 31>         [INTEGER]                 '4'
+<3, 32>         [FECHA_CHAVES]            '}'
+<3, 33>         [PONTO_VIRGULA]           ';'
+<4, 9>          [PRIMITIVO TIPO]          'int'
+<4, 13>         [ID]                      'idx'
+<4, 17>         [ATRIBUICAO]              '='
+<4, 19>         [INTEGER]                 '0'
+<4, 20>         [PONTO_VIRGULA]           ';'
+<5, 9>          [WHILE]                   'while'
+<5, 15>         [ABRE_PARENTESES]         '('
+<5, 16>         [ID]                      'idx'
+<5, 20>         [MENOR]                   '<'
+<5, 22>         [ID]                      'arr'
+<5, 25>         [PONTO]                   '.'
+<5, 26>         [ID]                      'length'
+<5, 32>         [FECHA_PARENTESES]        ')'
+<5, 34>         [ABRE_CHAVES]             '{'
+<6, 13>         [IF]                      'if'
+<6, 16>         [ABRE_PARENTESES]         '('
+<6, 17>         [ID]                      'arr'
+<6, 20>         [ABRE_COLCHETES]          '['
+<6, 21>         [ID]                      'idx'
+<6, 24>         [FECHA_COLCHETES]         ']'
+<6, 26>         [DIVISAO]                 '/'
+<6, 28>         [INTEGER]                 '2'
+<6, 30>         [IGUAL]                   '=='
+<6, 33>         [INTEGER]                 '0'
+<6, 34>         [FECHA_PARENTESES]        ')'
+<6, 36>         [ABRE_CHAVES]             '{'
+<8, 13>         [FECHA_CHAVES]            '}'
+<8, 15>         [ELSE]                    'else'
+<8, 20>         [ABRE_CHAVES]             '{'
+<9, 17>         [ID]                      'arr'
+<9, 20>         [ABRE_COLCHETES]          '['
+<9, 21>         [ID]                      'idx'
+<9, 24>         [FECHA_COLCHETES]         ']'
+<9, 26>         [ATRIBUICAO]              '='
+<9, 28>         [ID]                      'arr'
+<9, 31>         [ABRE_COLCHETES]          '['
+<9, 32>         [ID]                      'idx'
+<9, 35>         [FECHA_COLCHETES]         ']'
+<9, 37>         [ADICAO]                  '+'
+<9, 39>         [INTEGER]                 '1'
+<9, 40>         [PONTO_VIRGULA]           ';'
+<10, 13>        [FECHA_CHAVES]            '}'
+<11, 13>        [ID]                      'idx'
+<11, 17>        [ATRIBUICAO]              '='
+<11, 19>        [ID]                      'idx'
+<11, 23>        [ADICAO]                  '+'
+<11, 25>        [INTEGER]                 '1'
+<11, 26>        [PONTO_VIRGULA]           ';'
+<12, 9>         [FECHA_CHAVES]            '}'
+<14, 9>         [FOR]                     'for'
+<14, 13>        [ABRE_PARENTESES]         '('
+<14, 14>        [PRIMITIVO TIPO]          'int'
+<14, 18>        [ID]                      'k'
+<14, 20>        [ATRIBUICAO]              '='
+<14, 22>        [INTEGER]                 '0'
+<14, 23>        [PONTO_VIRGULA]           ';'
+<14, 25>        [ID]                      'k'
+<14, 27>        [MENOR]                   '<'
+<14, 29>        [ID]                      'arr'
+<14, 32>        [PONTO]                   '.'
+<14, 33>        [ID]                      'length'
+<14, 39>        [PONTO_VIRGULA]           ';'
+<14, 41>        [ID]                      'k'
+<14, 43>        [ATRIBUICAO]              '='
+<14, 45>        [ID]                      'k'
+<14, 47>        [ADICAO]                  '+'
+<14, 49>        [INTEGER]                 '1'
+<14, 50>        [FECHA_PARENTESES]        ')'
+<14, 52>        [ABRE_CHAVES]             '{'
+<16, 9>         [FECHA_CHAVES]            '}'
+<17, 5>         [FECHA_CHAVES]            '}'
+<18, 1>         [FECHA_CHAVES]            '}'
+<18, 2>         [EOF]                     'EOF'

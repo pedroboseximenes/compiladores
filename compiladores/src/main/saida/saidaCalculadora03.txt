@@ -1,6 +1,8 @@
-Linha, Coluna <1, 1> NUMERO
-Linha, Coluna <1, 7> OPERACAO
-Linha, Coluna <1, 9> ERRO
-Linha, Coluna <1, 10> ERRO
-Linha, Coluna <1, 11> ERRO
-Linha, Coluna <1, 12> EOF
+<linha,coluna>  [Tipo]                     Valor
+------------------------------------------------------------
+<1, 1>          [NUMERO]                  '10000'
+<1, 7>          [OPERACAO]                '*'
+<1, 9>          [ERRO]                    'a'
+<1, 10>         [ERRO]                    'b'
+<1, 11>         [ERRO]                    'c'
+<1, 12>         [EOF]                     'EOF'

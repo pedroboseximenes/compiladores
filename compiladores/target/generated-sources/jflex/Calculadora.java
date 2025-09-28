@@ -683,7 +683,7 @@ public class Calculadora {
       if (zzInput == YYEOF && zzStartRead == zzCurrentPos) {
         zzAtEOF = true;
               {
-                return new Token(Symbol.EOF, yyline+1, yycolumn+1);
+                return new Token(Symbol.EOF, "EOF", yyline+1, yycolumn+1);
               }
       }
       else {
@@ -692,7 +692,7 @@ public class Calculadora {
             { System.err.println("Caractere inválido: " + yytext() +
                        " na linha " + (yyline+1) +
                        ", coluna " + (yycolumn+1)); 
-    return new Token(Symbol.ERRO, yyline+1, yycolumn+1);
+    return new Token(Symbol.ERRO, yytext(), yyline+1, yycolumn+1);
             }
           // fall through
           case 8: break;
@@ -707,22 +707,22 @@ public class Calculadora {
           // fall through
           case 10: break;
           case 4:
-            { return new Token(Symbol.ABRE_PARENTESES, yyline+1, yycolumn+1);
+            { return new Token(Symbol.ABRE_PARENTESES, yytext(),  yyline+1, yycolumn+1);
             }
           // fall through
           case 11: break;
           case 5:
-            { return new Token(Symbol.FECHA_PARENTESES, yyline+1, yycolumn+1);
+            { return new Token(Symbol.FECHA_PARENTESES, yytext(), yyline+1, yycolumn+1);
             }
           // fall through
           case 12: break;
           case 6:
-            { return new Token(Symbol.OPERACAO, yyline+1, yycolumn+1);
+            { return new Token(Symbol.OPERACAO, yytext(), yyline+1, yycolumn+1);
             }
           // fall through
           case 13: break;
           case 7:
-            { return new Token(Symbol.NUMERO, yyline+1, yycolumn+1);
+            { return new Token(Symbol.NUMERO, yytext(), yyline+1, yycolumn+1);
             }
           // fall through
           case 14: break;

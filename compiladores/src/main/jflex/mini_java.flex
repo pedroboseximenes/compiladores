@@ -63,8 +63,7 @@ Array = ({Classe} | {Primitivo}){Colchetes}
 "false"      { return new Token(Symbol.FALSE, false, yyline+1, yycolumn+1); }
 
 /* Tipos Primitivos */
-"int"        { return new Token(Symbol.INT, "int", yyline+1, yycolumn+1); }
-"boolean"    { return new Token(Symbol.BOOLEAN, "boolean", yyline+1, yycolumn+1); }
+{Primitivo}  { return new Token(Symbol.PRIMITIVO, yytext(), yyline+1, yycolumn+1); }
 
 /* Tipos Referenciais */
 {Array}      { return new Token(Symbol.ARRAY, yytext(), yyline+1, yycolumn+1); }
