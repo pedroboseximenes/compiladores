@@ -1,5 +1,5 @@
 import utils.Token;
-import utils.Symbol;
+import utils.Symb;
 %%
 %public
 %class Calculadora
@@ -19,24 +19,24 @@ WhiteSpace    = [ \t\r\n\f]+
 {WhiteSpace}          { /* ignora */ }
 
 {Numero} { 
-   return new Token(Symbol.NUMERO, yytext(), yyline+1, yycolumn+1); 
+   return new Token(Symb.NUMERO, yytext(), yyline+1, yycolumn+1); 
 }
 
 {Operadores} { 
-     return new Token(Symbol.OPERACAO, yytext(), yyline+1, yycolumn+1);
+     return new Token(Symb.OPERACAO, yytext(), yyline+1, yycolumn+1);
 }
 
 {AbreParenteses} { 
-     return new Token(Symbol.ABRE_PARENTESES, yytext(),  yyline+1, yycolumn+1);
+     return new Token(Symb.ABRE_PARENTESES, yytext(),  yyline+1, yycolumn+1);
 }
 
 {FechaParenteses} { 
-    return new Token(Symbol.FECHA_PARENTESES, yytext(), yyline+1, yycolumn+1);
+    return new Token(Symb.FECHA_PARENTESES, yytext(), yyline+1, yycolumn+1);
 }
 
-<<EOF>> { return new Token(Symbol.EOF, "EOF", yyline+1, yycolumn+1); }
+<<EOF>> { return new Token(Symb.EOF, "EOF", yyline+1, yycolumn+1); }
 
 . { System.err.println("Caractere inválido: " + yytext() +
                        " na linha " + (yyline+1) +
                        ", coluna " + (yycolumn+1)); 
-    return new Token(Symbol.ERRO, yytext(), yyline+1, yycolumn+1); }
+    return new Token(Symb.ERRO, yytext(), yyline+1, yycolumn+1); }

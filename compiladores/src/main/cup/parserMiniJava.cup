@@ -1,0 +1,48 @@
+package com.compiladores;
+import java_cup.runtime.*;
+
+/* ----------------------------------------------------------------------------
+   Declaração dos Terminais (Tokens)
+---------------------------------------------------------------------------- */
+
+/* Terminais que carregam valor (Ex: o texto de uma String ou o valor de um int) */
+terminal String     ID;
+terminal String     STRING;
+terminal String     CHAR;
+terminal String     CLASSNAME;
+terminal Integer    INTEGER;
+
+terminal CLASS, EXTENDS, PUBLIC, STATIC, NATIVE, VOID, MAIN, RETURN;
+terminal IF, ELSE, WHILE, DO, FOR, BREAK, CONTINUE;
+terminal THIS, SUPER, NEW, PRIMITIVO, NULL;
+terminal TRUE, FALSE;
+terminal ARRAY;
+
+terminal ATRIBUICAO;      // =
+terminal E, OU, NAO;      // &&, ||, !
+terminal MENOR, MENOR_OU_IGUAL, MAIOR, MAIOR_OU_IGUAL;
+terminal IGUAL, DIFERENTE;
+terminal ADICAO, SUBTRACAO, MULTIPLICACAO, DIVISAO;
+terminal INTERROGACAO, DOIS_PONTOS;
+
+terminal PONTO_VIRGULA, VIRGULA, PONTO;
+terminal ABRE_PARENTESES, FECHA_PARENTESES;
+terminal ABRE_CHAVES, FECHA_CHAVES;
+terminal ABRE_COLCHETES, FECHA_COLCHETES;
+
+terminal OPERACAO;
+terminal ERRO;    
+
+
+/* ----------------------------------------------------------------------------
+   Declaração dos NÃO Terminais
+---------------------------------------------------------------------------- */
+non terminal Object program;
+
+
+/* ----------------------------------------------------------------------------
+   Declaração das regras da gramática 
+---------------------------------------------------------------------------- */
+start with program;
+
+program ::= /* Regra vazia por enquanto */ ;

@@ -1,6 +1,6 @@
 package utils;
 
-public enum Symbol {
+public enum Symb {
     /* Palavras-chave */
     CLASS("CLASS"),
     EXTENDS("EXTENDS"),
@@ -73,7 +73,7 @@ public enum Symbol {
 
     private final String tokenName;
 
-    Symbol(String tokenName) {
+    Symb(String tokenName) {
         this.tokenName = tokenName;
     }
 

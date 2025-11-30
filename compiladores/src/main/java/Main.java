@@ -3,9 +3,11 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 
-import utils.Symbol;
-import utils.Token;
+import com.compiladores.ParserMiniJava;
 
+import java_cup.runtime.Symbol;
+import utils.Symb;
+import utils.Token;
 public class Main {
 
     private static final int QUANTIDADE_TESTE_MINI_JAVA = 7;
@@ -17,19 +19,18 @@ public class Main {
             System.exit(1);
         }
         Token token;
+        Symbol simbolo;
         String nomeArquivo;
         for (int i = 0; i < QUANTIDADE_TESTE_MINI_JAVA; i++) {
             nomeArquivo = "src/main/saida/saidaMiniJava0" + (i + 1) + ".txt";
             try (PrintWriter pw = new PrintWriter(new FileWriter(nomeArquivo))) {
                 MiniJava lexer = new MiniJava(new FileReader(args[i]));
-                pw.printf("%-15s %-25s %s%n", "<linha,coluna>", "[Tipo]", " Valor");
+                ParserMiniJava t = new ParserMiniJava(lexer);
+                pw.printf("%s%n", " Valor");
                 pw.printf("%s%n", "-".repeat(60));
-                while ((token = lexer.yylex()) != null) {
-                    pw.printf("%-15s %-25s '%s'%n",
-                            "<" + token.linha + ", " + token.coluna + ">",
-                            "[" + token.tipo.getTokenName() + "]",
-                            token.valor);
-                    if (token.tipo == Symbol.EOF) {
+                while ((simbolo = lexer.next_token()) != null) {
+                    pw.printf("'%s'%n", simbolo.sym);
+                    if (simbolo.sym == 0) {
                         break;
                     }
                 }
@@ -49,7 +50,7 @@ public class Main {
                             "<" + token.linha + ", " + token.coluna + ">",
                             "[" + token.tipo.getTokenName() + "]",
                             token.valor);
-                    if (token.tipo == Symbol.EOF) {
+                    if (token.tipo == Symb.EOF) {
                         break;
                     }
                 }
