@@ -1,12 +1,17 @@
 class Good1 {
     public static void main(String[] args) {
-        int i = 0;
+        {}
+    }
+}
+class Good1 {
+    public int teste(int i) {
         while (i < 5) {
-            if (i / 2 == 0) {
+            if (i < 2) {
                 i = i + 1;
             } else {
                 i = i + 2;
             }
         }
+        return i;
     }
 }

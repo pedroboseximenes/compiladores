@@ -5,9 +5,8 @@ import java.io.PrintWriter;
 
 import com.compiladores.ParserMiniJava;
 
-import java_cup.runtime.ComplexSymbolFactory;
 import java_cup.runtime.Symbol;
-import java_cup.runtime.SymbolFactory;
+import utils.Arvore;
 import utils.Symb;
 import utils.Token;
 
@@ -29,7 +28,6 @@ public class Main {
             try (PrintWriter pw = new PrintWriter(new FileWriter(nomeArquivo))) {
 
                 MiniJava lexer = new MiniJava(new FileReader(args[i]));
-                // SymbolFactory sf = new ComplexSymbolFactory();
                 ParserMiniJava parser = new ParserMiniJava(lexer);
 
                 pw.printf("%s%n", "Resultado do Parser MiniJava");
@@ -42,9 +40,11 @@ public class Main {
                 // }
                 // }
 
-                Symbol resultado = parser.parse();
+                Symbol resultado = parser.debug_parse();
+                Arvore arvore = (Arvore) resultado.value;
 
-                pw.println("Parse concluído. AST/resultado: " + resultado.value);
+                pw.println("Parse concluído. AST/resultado: ");
+                arvore.imprimir(pw);
 
             } catch (Exception e) {
                 e.printStackTrace();

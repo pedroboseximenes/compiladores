@@ -1,6 +1,7 @@
 package com.compiladores;
 
 import java_cup.runtime.Symbol;
+import utils.Arvore;
 
 parser code {:
     public void report_error(String message, Object info) {
@@ -62,21 +63,294 @@ start with Goal;
 
 /* ================= REGRAS DA GRAMÁTICA ================= */
 
-/* Substituído (ClassDeclaration)* por ClassDeclarationList */
-Goal ::= 
-      MainClass
-      ;
+Goal ::= MainClass:m ClassDeclarationList:l {: 
+        Arvore raiz = new Arvore("Goal");
+        raiz.addFilho((Arvore) m);
+        raiz.addFilho((Arvore) l);
+        RESULT = raiz;
+    :};
 
-ClassDeclarationList ::= 
-      ClassDeclarationList ClassDeclaration
+/* MainClass */
+MainClass ::= CLASS ID:nome ABRE_CHAVES 
+              PUBLIC STATIC VOID MAIN ABRE_PARENTESES STRING ABRE_COLCHETES FECHA_COLCHETES ID:args FECHA_PARENTESES 
+              ABRE_CHAVES Statement:s FECHA_CHAVES 
+              FECHA_CHAVES
+    {:
+        Arvore node = new Arvore("MainClass");
+        node.addFilho(new Arvore("ID_Class", (String) nome));
+        node.addFilho(new Arvore("Args",(String)  args));
+        node.addFilho((Arvore) s);
+        RESULT = node;
+    :};
+
+/* Lista de Declarações de Classe */
+ClassDeclarationList ::= ClassDeclaration:c ClassDeclarationList:l
+    {:
+        Arvore node = new Arvore("ClassDeclarationList");
+        node.addFilho((Arvore) c);
+        node.addFilho((Arvore) l);
+        RESULT = node;
+    :}
     | /* vazio */
+    {: RESULT = null; :} 
     ;
 
-MainClass	::=	CLASS ID ABRE_CHAVES
-                     PUBLIC STATIC VOID MAIN ABRE_PARENTESES
-                           STRING ABRE_COLCHETES FECHA_COLCHETES ID
-                        FECHA_PARENTESES 
-                           ABRE_CHAVES
-                           FECHA_CHAVES
-                        FECHA_CHAVES
-   ;
+/* ClassDeclaration */
+ClassDeclaration ::= CLASS ID:nome EXTENDS ID:pai ABRE_CHAVES VarDeclarationList:vl MethodDeclarationList:ml FECHA_CHAVES
+    {:
+        Arvore node = new Arvore("ClassDeclaration");
+        node.addFilho(new Arvore("ID", (String) nome));
+        node.addFilho(new Arvore("Extends", (String) pai));
+        node.addFilho((Arvore)vl);
+        node.addFilho((Arvore)ml);
+        RESULT = node;
+    :}
+    | CLASS ID:nome ABRE_CHAVES VarDeclarationList:vl MethodDeclarationList:ml FECHA_CHAVES
+    {:
+        Arvore node = new Arvore("ClassDeclaration");
+        node.addFilho((Arvore)new Arvore("ID", (String) nome));
+        node.addFilho((Arvore)vl);
+        node.addFilho((Arvore)ml);
+        RESULT = node;
+    :};
+
+/* Listas de Variáveis e Métodos */
+VarDeclarationList ::= VarDeclarationList:l VarDeclaration:v
+    {:
+        // Se a lista já existe, adicionamos nela, senão criamos
+        Arvore node;
+        if (l == null) node = new Arvore("VarDeclarationList");
+        else node =  (Arvore) l;
+        
+        node.addFilho((Arvore)v);
+        RESULT = node;
+    :}
+    | /* vazio */
+    {: RESULT = new Arvore("VarDeclarationList"); :}
+    ;
+
+MethodDeclarationList ::= MethodDeclarationList:l MethodDeclaration:m
+    {:
+        Arvore node;
+        if (l == null) node = new Arvore("MethodDeclarationList");
+        else node = (Arvore) l;
+
+        node.addFilho((Arvore)m);
+        RESULT = node;
+    :}
+    | /* vazio */
+    {: RESULT = new Arvore("MethodDeclarationList"); :}
+    ;
+
+/* VarDeclaration */
+VarDeclaration ::= Type:t ID:nome PONTO_VIRGULA
+    {:
+        Arvore node = new Arvore("VarDeclaration");
+        node.addFilho((Arvore)t);
+        node.addFilho((Arvore)new Arvore("ID", (String) nome));
+        RESULT = node;
+    :};
+
+/* MethodDeclaration */
+MethodDeclaration ::= PUBLIC Type:t ID:nome ABRE_PARENTESES FormalParamList:params FECHA_PARENTESES 
+                      ABRE_CHAVES VarDeclarationList:vars StatementList:stmts RETURN Expression:ret PONTO_VIRGULA FECHA_CHAVES
+    {:
+        Arvore node = new Arvore("MethodDeclaration");
+        node.addFilho((Arvore)t);
+        node.addFilho(new Arvore("ID", (String) nome));
+        node.addFilho((Arvore)params);
+        node.addFilho((Arvore)vars);
+        node.addFilho((Arvore)stmts);
+        
+        Arvore retNode = new Arvore("Return");
+        retNode.addFilho((Arvore)ret);
+        node.addFilho((Arvore)retNode);
+        
+        RESULT = node;
+    :}
+    | PUBLIC Type:t ID:nome ABRE_PARENTESES FECHA_PARENTESES 
+      ABRE_CHAVES VarDeclarationList:vars StatementList:stmts RETURN Expression:ret PONTO_VIRGULA FECHA_CHAVES
+    {:
+        Arvore node = new Arvore("MethodDeclaration");
+        node.addFilho((Arvore)t);
+        node.addFilho(new Arvore("ID", (String) nome));
+        node.addFilho(new Arvore("NoParams"));
+        node.addFilho((Arvore)vars);
+        node.addFilho((Arvore)stmts);
+        
+        Arvore retNode = new Arvore("Return");
+        retNode.addFilho((Arvore)ret);
+        node.addFilho((Arvore)retNode);
+        
+        RESULT = node;
+    :};
+
+/* Lista de Parâmetros Formais */
+FormalParamList ::= Type:t ID:nome FormalParamRest:rest
+    {:
+        Arvore node = new Arvore("FormalParamList");
+        Arvore param = new Arvore("Param");
+        param.addFilho((Arvore)t);
+        param.addFilho((Arvore)new Arvore("ID", (String) nome));
+        
+        node.addFilho((Arvore)param);
+        node.addFilho((Arvore)rest);
+        RESULT = node;
+    :};
+
+FormalParamRest ::= VIRGULA Type:t ID:nome FormalParamRest:rest
+    {:
+        Arvore node = new Arvore("ParamRest");
+        Arvore param = new Arvore("Param");
+        param.addFilho((Arvore)t);
+        param.addFilho(new Arvore("ID", (String) nome));
+        
+        node.addFilho((Arvore)param);
+        node.addFilho((Arvore)rest);
+        RESULT = node;
+    :}
+    | /* vazio */
+    {: RESULT = null; :}
+    ;
+
+/* Tipos */
+Type ::= INT ABRE_COLCHETES FECHA_COLCHETES {: RESULT = new Arvore("Type", "int[]"); :}
+       | BOOLEAN                            {: RESULT = new Arvore("Type", "boolean"); :}
+       | INT                                {: RESULT = new Arvore("Type", "int"); :}
+       | ID:nome                            {: RESULT = new Arvore("Type", (String) nome); :}
+       ;
+
+/* Lista de Statements */
+StatementList ::= Statement:s StatementList:l
+    {:
+        Arvore node = new Arvore("StatementList");
+        node.addFilho((Arvore)s);
+        node.addFilho((Arvore)l);
+        RESULT = node;
+    :}
+    | /* vazio */
+    {: RESULT = null; :}
+    ;
+
+/* Statements */
+Statement ::= ABRE_CHAVES StatementList:l FECHA_CHAVES
+            {: 
+                Arvore node = new Arvore("Block");
+                node.addFilho((Arvore)l);
+                RESULT = node; 
+            :}
+            | IF ABRE_PARENTESES Expression:e FECHA_PARENTESES Statement:s1 ELSE Statement:s2
+            {:
+                Arvore node = new Arvore("IfElse");
+                node.addFilho((Arvore)e);
+                node.addFilho((Arvore)s1);
+                node.addFilho((Arvore)s2);
+                RESULT = node;
+            :}
+            | WHILE ABRE_PARENTESES Expression:e FECHA_PARENTESES Statement:s
+            {:
+                Arvore node = new Arvore("While");
+                node.addFilho((Arvore)e);
+                node.addFilho((Arvore)s);
+                RESULT = node;
+            :}
+            | ID:id1 PONTO ID:id2 PONTO ID:id3 ABRE_PARENTESES Expression:e FECHA_PARENTESES PONTO_VIRGULA
+            {:
+                // Detecta System.out.println
+                Arvore node = new Arvore("Print");
+                // node.addFilho((Arvore)new Arvore("Call", (String) id1 + "." + (String) id2 + "." + (String) id3)); // Opcional
+                node.addFilho((Arvore)e);
+                RESULT = node;
+            :}
+            | ID:nome ATRIBUICAO Expression:e PONTO_VIRGULA
+            {:
+                Arvore node = new Arvore("Atribuicao");
+                node.addFilho((Arvore)new Arvore("ID", (String)nome));
+                node.addFilho((Arvore)e);
+                RESULT = node;
+            :}
+            | ID:nome ABRE_COLCHETES Expression:idx FECHA_COLCHETES ATRIBUICAO Expression:val PONTO_VIRGULA
+            {:
+                Arvore node = new Arvore("AtribuicaoArray");
+                node.addFilho((Arvore)new Arvore("ID",(String) nome));
+                node.addFilho((Arvore)idx);
+                node.addFilho((Arvore)val);
+                RESULT = node;
+            :}
+            ;
+
+/* Expressões */
+Expression ::= Expression:e1 E Expression:e2
+             {: Arvore node = new Arvore("And"); node.addFilho((Arvore)e1); node.addFilho((Arvore)e2); RESULT = node; :}
+             | Expression:e1 MENOR Expression:e2
+             {: Arvore node = new Arvore("Menor"); node.addFilho((Arvore)e1); node.addFilho((Arvore)e2); RESULT = node; :}
+             | Expression:e1 ADICAO Expression:e2
+             {: Arvore node = new Arvore("Soma"); node.addFilho((Arvore)e1); node.addFilho((Arvore)e2); RESULT = node; :}
+             | Expression:e1 SUBTRACAO Expression:e2
+             {: Arvore node = new Arvore("Subtracao"); node.addFilho((Arvore)e1); node.addFilho((Arvore)e2); RESULT = node; :}
+             | Expression:e1 MULTIPLICACAO Expression:e2
+             {: Arvore node = new Arvore("Multiplicacao"); node.addFilho((Arvore)e1); node.addFilho((Arvore)e2); RESULT = node; :}
+             | Expression:e1 ABRE_COLCHETES Expression:e2 FECHA_COLCHETES
+             {: Arvore node = new Arvore("ArrayAccess"); node.addFilho((Arvore)e1); node.addFilho((Arvore)e2); RESULT = node; :}
+             | Expression:e1 PONTO ID:metodo ABRE_PARENTESES ExpressionList:args FECHA_PARENTESES
+             {: 
+                Arvore node = new Arvore("CallMethod"); 
+                node.addFilho((Arvore)e1); 
+                node.addFilho((Arvore)new Arvore("ID", (String) metodo));
+                node.addFilho((Arvore)args); 
+                RESULT = node; 
+             :}
+             | Expression:e1 PONTO ID:metodo ABRE_PARENTESES FECHA_PARENTESES
+             {: 
+                Arvore node = new Arvore("CallMethod"); 
+                node.addFilho((Arvore)e1); 
+                node.addFilho((Arvore)new Arvore("ID", (String) metodo));
+                RESULT = node; 
+             :}
+             | Expression:e1 PONTO ID:propriedade
+             {: 
+                // Geralmente usado para .length
+                Arvore node = new Arvore("PropertyAccess"); 
+                node.addFilho((Arvore)e1); 
+                node.addFilho((Arvore)new Arvore("ID", (String) propriedade));
+                RESULT = node; 
+             :}
+             | INTEGER:valor
+             {: RESULT = new Arvore("Integer", valor.toString()); :}
+             | TRUE
+             {: RESULT = new Arvore("True"); :}
+             | FALSE
+             {: RESULT = new Arvore("False"); :}
+             | ID:nome
+             {: RESULT = new Arvore("ID", (String) nome); :}
+             | THIS
+             {: RESULT = new Arvore("This"); :}
+             | NEW INT ABRE_COLCHETES Expression:e FECHA_COLCHETES
+             {: Arvore node = new Arvore("NewIntArray"); node.addFilho((Arvore)e); RESULT = node; :}
+             | NEW ID:nome ABRE_PARENTESES FECHA_PARENTESES
+             {: Arvore node = new Arvore("NewObject"); node.addFilho((Arvore)new Arvore("ID", (String) nome)); RESULT = node; :}
+             | NAO Expression:e
+             {: Arvore node = new Arvore("Not"); node.addFilho((Arvore)e); RESULT = node; :}
+             | ABRE_PARENTESES Expression:e FECHA_PARENTESES
+             {: RESULT = e; :}
+             ;
+
+/* Lista de Expressões (Argumentos de função) */
+ExpressionList ::= Expression:e ExpressionRest:rest
+    {:
+        Arvore node = new Arvore("ExpressionList");
+        node.addFilho((Arvore)e);
+        node.addFilho((Arvore)rest);
+        RESULT = node;
+    :};
+
+ExpressionRest ::= VIRGULA Expression:e ExpressionRest:rest
+    {:
+        Arvore node = new Arvore("ExpressionRest");
+        node.addFilho((Arvore)e);
+        node.addFilho((Arvore)rest);
+        RESULT = node;
+    :}
+    | /* vazio */
+    {: RESULT = null; :}
+    ;

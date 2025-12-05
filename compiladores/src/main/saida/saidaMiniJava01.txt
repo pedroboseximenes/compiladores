@@ -1,57 +1,48 @@
- Valor
+Resultado do Parser MiniJava
 ------------------------------------------------------------
-'7'
-'5'
-'51'
-'9'
-'10'
-'12'
-'13'
-'49'
-'5'
-'53'
-'54'
-'2'
-'50'
-'51'
-'25'
-'2'
-'30'
-'6'
-'46'
-'17'
-'49'
-'2'
-'34'
-'6'
-'50'
-'51'
-'15'
-'49'
-'2'
-'43'
-'6'
-'38'
-'6'
-'50'
-'51'
-'2'
-'30'
-'2'
-'40'
-'6'
-'46'
-'52'
-'16'
-'51'
-'2'
-'30'
-'2'
-'40'
-'6'
-'46'
-'52'
-'52'
-'52'
-'52'
-'0'
+Parse concluído. AST/resultado: 
+Goal
+├── MainClass
+│   ├── ID_Class: Good1
+│   ├── Args: args
+│   └── Block
+└── ClassDeclarationList
+    └── ClassDeclaration
+        ├── ID: Good1
+        ├── VarDeclarationList
+        └── MethodDeclarationList
+            └── MethodDeclaration
+                ├── Type: int
+                ├── ID: teste
+                ├── FormalParamList
+                │   └── Param
+                │       ├── Type: int
+                │       └── ID: i
+                ├── VarDeclarationList
+                ├── StatementList
+                │   └── While
+                │       ├── Menor
+                │       │   ├── ID: i
+                │       │   └── Integer: 5
+                │       └── Block
+                │           └── StatementList
+                │               └── IfElse
+                │                   ├── Menor
+                │                   │   ├── ID: i
+                │                   │   └── Integer: 2
+                │                   ├── Block
+                │                   │   └── StatementList
+                │                   │       └── Atribuicao
+                │                   │           ├── ID: i
+                │                   │           └── Soma
+                │                   │               ├── ID: i
+                │                   │               └── Integer: 1
+                │                   └── Block
+                │                       └── StatementList
+                │                           └── Atribuicao
+                │                               ├── ID: i
+                │                               └── Soma
+                │                                   ├── ID: i
+                │                                   └── Integer: 2
+                └── Return
+                    └── ID: i
