@@ -1,58 +1,111 @@
- Valor
+Resultado do LEXER com os Tokens MiniJava
 ------------------------------------------------------------
-'9'
-'7'
-'5'
-'51'
-'9'
+'class'
+'Good2'
+'{'
+'public'
+'static'
+'void'
+'main'
+'('
+'String'
+'['
+']'
+'args'
+')'
+'{'
+'System'
+'.'
+'out'
+'.'
+'println'
+'('
+'new'
+'Calculadora'
+'('
+')'
+'.'
+'soma'
+'('
 '10'
-'12'
-'13'
-'49'
-'5'
-'53'
-'54'
-'2'
-'50'
-'51'
-'25'
-'2'
-'30'
-'6'
-'46'
-'19'
-'49'
-'25'
-'2'
-'30'
-'6'
-'46'
-'2'
-'34'
-'6'
-'46'
-'2'
-'30'
-'2'
-'40'
-'6'
-'50'
-'51'
-'15'
-'49'
-'2'
-'34'
-'6'
-'50'
-'51'
-'2'
-'30'
-'2'
-'40'
-'2'
-'46'
-'52'
-'52'
-'52'
-'52'
-'0'
+','
+'20'
+')'
+')'
+';'
+'}'
+'}'
+'class'
+'Calculadora'
+'{'
+'public'
+'int'
+'soma'
+'('
+'int'
+'num1'
+','
+'int'
+'num2'
+')'
+'{'
+'int'
+'total'
+';'
+'total'
+'='
+'num1'
+'+'
+'num2'
+';'
+'return'
+'total'
+';'
+'}'
+'}'
+'EOF'
+Resultado do Parser MiniJava
+------------------------------------------------------------
+Parse concluído com SUCESSO. AST/resultado: 
+------------------------------------------------------------
+Goal
+├── MainClass
+│   ├── ID_Class: Good2
+│   ├── Args: args
+│   └── Print
+│       └── CallMethod
+│           ├── NewObject
+│           │   └── ID: Calculadora
+│           ├── ID: soma
+│           └── ExpressionList
+│               ├── Integer: 10
+│               └── ExpressionRest
+│                   └── Integer: 20
+└── ClassDeclarationList
+    └── ClassDeclaration
+        ├── ID: Calculadora
+        ├── VarDeclarationList
+        └── MethodDeclarationList
+            └── MethodDeclaration
+                ├── Type: int
+                ├── ID: soma
+                ├── FormalParamList
+                │   ├── Param
+                │   │   ├── Type: int
+                │   │   └── ID: num1
+                │   └── ParamRest
+                │       └── Param
+                │           ├── Type: int
+                │           └── ID: num2
+                ├── VarDeclarationList
+                │   └── VarDeclaration
+                │       ├── Type: int
+                │       └── ID: total
+                ├── StatementList
+                │   └── Atribuicao
+                │       ├── ID: total
+                │       └── Soma
+                │           ├── ID: num1
+                │           └── ID: num2
+                └── Return
+                    └── ID: total

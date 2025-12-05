@@ -1,15 +1,34 @@
 package com.compiladores;
 
-import java_cup.runtime.Symbol;
+import java_cup.runtime.*;
+import java.util.ArrayList;
+import java.util.List;
 import utils.Arvore;
 
 parser code {:
-    public void report_error(String message, Object info) {
-        System.err.println("[ERRO] " + message);
+    private List<String> erros = new ArrayList<>();
+
+    public List<String> getErros() {
+        return erros;
     }
-    public void report_fatal_error(String message, Object info) {
-        report_error(message, info);
-        throw new RuntimeException(message);
+
+    @Override
+    public void syntax_error(Symbol s) {
+        // Pega a linha e coluna do token atual (onde deu erro)
+        int linha = s.left + 1; // +1 porque costuma começar em 0
+        int coluna = s.right + 1;
+        
+        String mensagem = "Erro sintático na linha " + linha + ", coluna " + coluna + ". Token inesperado: " + s.value;
+        
+        // Adiciona na lista em vez de dar System.out.println
+        erros.add(mensagem);
+    }
+
+    @Override
+    public void unrecovered_syntax_error(Symbol s) throws java.lang.Exception {
+        // Apenas registra e deixa o parser finalizar o que der
+        String msg = "Erro fatal (irrecuperável) na linha " + (s.left+1);
+        erros.add(msg);
     }
 :};
 

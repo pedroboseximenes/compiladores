@@ -1,12 +1,21 @@
 class Good4 {
     public static void main(String[] args) {
-        boolean done = false;
-        for (int t = 0; t < 3; t = t + 1) {
-            if (!done) {
-                done = (t == 2);
-            } else {
-                // já pronto
-            }
+        System.out.println(new Loop().executa());
+    }
+}
+
+class Loop {
+    public int executa() {
+        int[] vetor;
+        int i;
+        int tam;
+        tam = 5;
+        vetor = new int[tam];
+        i = 0;
+        while (i < tam) {
+            vetor[i] = i * 2;
+            i = i + 1;
         }
+        return vetor[4]; // Retorna o último elemento
     }
 }

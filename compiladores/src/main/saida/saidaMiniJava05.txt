@@ -1,131 +1,133 @@
- Valor
+Resultado do LEXER com os Tokens MiniJava
 ------------------------------------------------------------
-'7'
+'class'
+'Good5'
+'{'
+'public'
+'static'
+'void'
+'main'
+'('
+'String'
+'['
+']'
+'args'
+')'
+'{'
+'System'
+'.'
+'out'
+'.'
+'println'
+'('
+'new'
+'Fatorial'
+'('
+')'
+'.'
+'compute'
+'('
 '5'
-'51'
-'9'
-'10'
-'12'
-'13'
-'49'
-'5'
-'53'
-'54'
-'2'
-'50'
-'51'
-'25'
-'53'
-'54'
-'53'
-'54'
-'2'
-'30'
-'51'
-'51'
-'6'
-'47'
-'6'
-'52'
-'47'
-'51'
-'6'
-'47'
-'6'
-'52'
-'52'
-'46'
-'25'
-'2'
-'30'
-'6'
-'46'
-'17'
-'49'
-'2'
-'34'
-'6'
-'50'
-'51'
-'25'
-'2'
-'30'
-'6'
-'46'
-'17'
-'49'
-'2'
-'34'
-'6'
-'50'
-'51'
-'15'
-'49'
-'2'
-'53'
-'2'
-'54'
-'53'
-'2'
-'54'
-'36'
-'6'
-'50'
-'51'
-'2'
-'53'
-'2'
-'54'
-'53'
-'2'
-'54'
-'30'
-'2'
-'53'
-'2'
-'54'
-'53'
-'2'
-'54'
-'41'
-'6'
-'46'
-'52'
-'16'
-'51'
-'2'
-'53'
-'2'
-'54'
-'53'
-'2'
-'54'
-'30'
-'2'
-'53'
-'2'
-'54'
-'53'
-'2'
-'54'
-'40'
-'6'
-'46'
-'52'
-'2'
-'30'
-'2'
-'40'
-'6'
-'46'
-'52'
-'2'
-'30'
-'2'
-'40'
-'6'
-'46'
-'52'
-'52'
-'52'
-'0'
+')'
+')'
+';'
+'}'
+'}'
+'class'
+'Fatorial'
+'{'
+'public'
+'int'
+'compute'
+'('
+'int'
+'num'
+')'
+'{'
+'int'
+'num_aux'
+';'
+'if'
+'('
+'num'
+'<'
+'1'
+')'
+'num_aux'
+'='
+'1'
+';'
+'else'
+'num_aux'
+'='
+'num'
+'*'
+'('
+'this'
+'.'
+'compute'
+'('
+'num'
+'-'
+'1'
+')'
+')'
+';'
+'return'
+'num_aux'
+';'
+'}'
+'}'
+'EOF'
+Resultado do Parser MiniJava
+------------------------------------------------------------
+Parse concluído com SUCESSO. AST/resultado: 
+------------------------------------------------------------
+Goal
+├── MainClass
+│   ├── ID_Class: Good5
+│   ├── Args: args
+│   └── Print
+│       └── CallMethod
+│           ├── NewObject
+│           │   └── ID: Fatorial
+│           ├── ID: compute
+│           └── ExpressionList
+│               └── Integer: 5
+└── ClassDeclarationList
+    └── ClassDeclaration
+        ├── ID: Fatorial
+        ├── VarDeclarationList
+        └── MethodDeclarationList
+            └── MethodDeclaration
+                ├── Type: int
+                ├── ID: compute
+                ├── FormalParamList
+                │   └── Param
+                │       ├── Type: int
+                │       └── ID: num
+                ├── VarDeclarationList
+                │   └── VarDeclaration
+                │       ├── Type: int
+                │       └── ID: num_aux
+                ├── StatementList
+                │   └── IfElse
+                │       ├── Menor
+                │       │   ├── ID: num
+                │       │   └── Integer: 1
+                │       ├── Atribuicao
+                │       │   ├── ID: num_aux
+                │       │   └── Integer: 1
+                │       └── Atribuicao
+                │           ├── ID: num_aux
+                │           └── Multiplicacao
+                │               ├── ID: num
+                │               └── CallMethod
+                │                   ├── This
+                │                   ├── ID: compute
+                │                   └── ExpressionList
+                │                       └── Subtracao
+                │                           ├── ID: num
+                │                           └── Integer: 1
+                └── Return
+                    └── ID: num_aux

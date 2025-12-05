@@ -34,8 +34,6 @@ IntLiteral    = {DecInteger}
 
 /* Ignorar espaços e comentários */
 {WhiteSpace}          { /* ignora */ }
-"//".*                { /* ignora */ }
-"/*"([^*]|\*+[^*/])*\*+"/" { /* ignora */ }
 
 /* Palavras-chave */
 "class"     { return criarSymbol(sym.CLASS, "class", yyline+1, yycolumn+1); }

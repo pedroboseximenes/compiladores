@@ -12,8 +12,8 @@ import utils.Token;
 
 public class Main {
 
-    private static final int QUANTIDADE_TESTE_MINI_JAVA = 1;
-    private static final int QUANTIDADE_TESTE_CALCULADORA = 0;
+    private static final int QUANTIDADE_TESTE_MINI_JAVA = 7;
+    private static final int QUANTIDADE_TESTE_CALCULADORA = 3;
 
     public static void main(String[] args) {
         if (args.length < 1) {
@@ -26,25 +26,37 @@ public class Main {
             nomeArquivo = "src/main/saida/saidaMiniJava0" + (i + 1) + ".txt";
 
             try (PrintWriter pw = new PrintWriter(new FileWriter(nomeArquivo))) {
-
+                Symbol simbolo;
                 MiniJava lexer = new MiniJava(new FileReader(args[i]));
-                ParserMiniJava parser = new ParserMiniJava(lexer);
+
+
+                pw.printf("%s%n", "Resultado do LEXER com os Tokens MiniJava");
+                pw.printf("%s%n", "-".repeat(60));
+                while ((simbolo = lexer.next_token()) != null) {
+                    pw.printf("'%s'%n", simbolo.value);
+                    if (simbolo.sym == 0) {
+                    break;
+                }
+                }
 
                 pw.printf("%s%n", "Resultado do Parser MiniJava");
                 pw.printf("%s%n", "-".repeat(60));
+                lexer = new MiniJava(new FileReader(args[i]));
+                ParserMiniJava parser = new ParserMiniJava(lexer);
+                Symbol resultado = parser.parse();
+                if(parser.getErros().isEmpty()){
+                    Arvore arvore = (Arvore) resultado.value;
+                    pw.println("Parse concluído com SUCESSO. AST/resultado: ");
+                    pw.printf("%s%n", "-".repeat(60));
+                    arvore.imprimir(pw);
+                } else{
+                    pw.println("Parse com erro. Erro em: ");
+                    pw.printf("%s%n", "-".repeat(60));
+                    for (String erro : parser.getErros()) {
+                         pw.println(erro);
+                    }
+                }
 
-                // while ((simbolo = lexer.next_token()) != null) {
-                // pw.printf("'%s'%n", simbolo.sym);
-                // if (simbolo.sym == 0) {
-                // break;
-                // }
-                // }
-
-                Symbol resultado = parser.debug_parse();
-                Arvore arvore = (Arvore) resultado.value;
-
-                pw.println("Parse concluído. AST/resultado: ");
-                arvore.imprimir(pw);
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -55,6 +67,8 @@ public class Main {
             nomeArquivo = "src/main/saida/saidaCalculadora0" + (j + 1) + ".txt";
             try (PrintWriter pw = new PrintWriter(new FileWriter(nomeArquivo))) {
                 Calculadora lexer = new Calculadora(new FileReader(args[j + QUANTIDADE_TESTE_MINI_JAVA]));
+                pw.printf("%s%n", "Resultado do LEXER com os Tokens MiniJava");
+                pw.printf("%s%n", "-".repeat(60));
                 pw.printf("%-15s %-25s %s%n", "<linha,coluna>", "[Tipo]", " Valor");
                 pw.printf("%s%n", "-".repeat(60));
                 while ((token = lexer.yylex()) != null) {

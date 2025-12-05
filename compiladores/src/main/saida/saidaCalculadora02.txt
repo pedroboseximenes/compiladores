@@ -1,6 +1,14 @@
+Resultado do LEXER com os Tokens MiniJava
+------------------------------------------------------------
 <linha,coluna>  [Tipo]                     Valor
 ------------------------------------------------------------
-<2, 1>          [NUMERO]                  '1'
-<2, 3>          [OPERACAO]                '+'
-<2, 5>          [NUMERO]                  '105'
-<3, 1>          [EOF]                     'EOF'
+<1, 1>          [ABRE_PARENTESES]         '('
+<1, 2>          [NUMERO]                  '5'
+<1, 4>          [OPERACAO]                '+'
+<1, 6>          [ABRE_PARENTESES]         '('
+<1, 7>          [NUMERO]                  '10'
+<1, 10>         [OPERACAO]                '*'
+<1, 12>         [NUMERO]                  '2'
+<1, 13>         [FECHA_PARENTESES]        ')'
+<1, 14>         [FECHA_PARENTESES]        ')'
+<2, 1>          [EOF]                     'EOF'

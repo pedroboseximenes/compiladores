@@ -1,104 +1,144 @@
- Valor
+Resultado do LEXER com os Tokens MiniJava
 ------------------------------------------------------------
-'7'
+'class'
+'Good3'
+'{'
+'public'
+'static'
+'void'
+'main'
+'('
+'String'
+'['
+']'
+'args'
+')'
+'{'
+'System'
+'.'
+'out'
+'.'
+'println'
+'('
+'new'
+'Verificador'
+'('
+')'
+'.'
+'testa'
+'('
 '5'
-'51'
-'9'
+')'
+')'
+';'
+'}'
+'}'
+'class'
+'Verificador'
+'{'
+'public'
+'int'
+'testa'
+'('
+'int'
+'valor'
+')'
+'{'
+'int'
+'res'
+';'
+'boolean'
+'flag'
+';'
+'if'
+'('
+'valor'
+'<'
 '10'
-'12'
-'13'
-'49'
-'5'
-'53'
-'54'
-'2'
-'50'
-'51'
-'25'
-'53'
-'54'
-'2'
-'30'
-'51'
-'6'
-'47'
-'6'
-'47'
-'6'
-'47'
-'6'
-'52'
-'46'
-'25'
-'2'
-'30'
-'6'
-'46'
-'17'
-'49'
-'2'
-'34'
-'2'
-'48'
-'2'
-'50'
-'51'
-'15'
-'49'
-'2'
-'53'
-'2'
-'54'
-'43'
-'6'
-'38'
-'6'
-'50'
-'51'
-'52'
-'16'
-'51'
-'2'
-'53'
-'2'
-'54'
-'30'
-'2'
-'53'
-'2'
-'54'
-'40'
-'6'
-'46'
-'52'
-'2'
-'30'
-'2'
-'40'
-'6'
-'46'
-'52'
-'19'
-'49'
-'25'
-'2'
-'30'
-'6'
-'46'
-'2'
-'34'
-'2'
-'48'
-'2'
-'46'
-'2'
-'30'
-'2'
-'40'
-'6'
-'50'
-'51'
-'52'
-'52'
-'52'
+')'
+'{'
+'res'
+'='
+'1'
+';'
+'flag'
+'='
+'true'
+';'
+'}'
+'else'
+'{'
+'res'
+'='
 '0'
+';'
+'flag'
+'='
+'false'
+';'
+'}'
+'return'
+'res'
+';'
+'}'
+'}'
+'EOF'
+Resultado do Parser MiniJava
+------------------------------------------------------------
+Parse concluído com SUCESSO. AST/resultado: 
+------------------------------------------------------------
+Goal
+├── MainClass
+│   ├── ID_Class: Good3
+│   ├── Args: args
+│   └── Print
+│       └── CallMethod
+│           ├── NewObject
+│           │   └── ID: Verificador
+│           ├── ID: testa
+│           └── ExpressionList
+│               └── Integer: 5
+└── ClassDeclarationList
+    └── ClassDeclaration
+        ├── ID: Verificador
+        ├── VarDeclarationList
+        └── MethodDeclarationList
+            └── MethodDeclaration
+                ├── Type: int
+                ├── ID: testa
+                ├── FormalParamList
+                │   └── Param
+                │       ├── Type: int
+                │       └── ID: valor
+                ├── VarDeclarationList
+                │   ├── VarDeclaration
+                │   │   ├── Type: int
+                │   │   └── ID: res
+                │   └── VarDeclaration
+                │       ├── Type: boolean
+                │       └── ID: flag
+                ├── StatementList
+                │   └── IfElse
+                │       ├── Menor
+                │       │   ├── ID: valor
+                │       │   └── Integer: 10
+                │       ├── Block
+                │       │   └── StatementList
+                │       │       ├── Atribuicao
+                │       │       │   ├── ID: res
+                │       │       │   └── Integer: 1
+                │       │       └── StatementList
+                │       │           └── Atribuicao
+                │       │               ├── ID: flag
+                │       │               └── True
+                │       └── Block
+                │           └── StatementList
+                │               ├── Atribuicao
+                │               │   ├── ID: res
+                │               │   └── Integer: 0
+                │               └── StatementList
+                │                   └── Atribuicao
+                │                       ├── ID: flag
+                │                       └── False
+                └── Return
+                    └── ID: res

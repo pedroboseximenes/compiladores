@@ -1,8 +1,17 @@
 class Bad2 {
     public static void main(String[] args) {
-        int #value = 10; // <-- '#' não é permitido em identificadores nem como token válido
-        for (int i = 0; i < #value; i = i + 1) {
-            // ...
+        System.out.println(new ErroVar().teste());
+    }
+}
+
+class ErroVar {
+    public int teste() {
+        int x = 10; 
+        
+        if (x < 20) {
+            x = 0;
         }
+        
+        return x;
     }
 }
