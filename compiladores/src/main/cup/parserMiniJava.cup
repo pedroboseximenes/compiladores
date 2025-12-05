@@ -1,48 +1,82 @@
 package com.compiladores;
-import java_cup.runtime.*;
 
-/* ----------------------------------------------------------------------------
-   Declaração dos Terminais (Tokens)
----------------------------------------------------------------------------- */
+import java_cup.runtime.Symbol;
 
-/* Terminais que carregam valor (Ex: o texto de uma String ou o valor de um int) */
-terminal String     ID;
-terminal String     STRING;
-terminal String     CHAR;
-terminal String     CLASSNAME;
-terminal Integer    INTEGER;
+parser code {:
+    public void report_error(String message, Object info) {
+        System.err.println("[ERRO] " + message);
+    }
+    public void report_fatal_error(String message, Object info) {
+        report_error(message, info);
+        throw new RuntimeException(message);
+    }
+:};
 
-terminal CLASS, EXTENDS, PUBLIC, STATIC, NATIVE, VOID, MAIN, RETURN;
-terminal IF, ELSE, WHILE, DO, FOR, BREAK, CONTINUE;
-terminal THIS, SUPER, NEW, PRIMITIVO, NULL;
-terminal TRUE, FALSE;
-terminal ARRAY;
-
-terminal ATRIBUICAO;      // =
-terminal E, OU, NAO;      // &&, ||, !
-terminal MENOR, MENOR_OU_IGUAL, MAIOR, MAIOR_OU_IGUAL;
-terminal IGUAL, DIFERENTE;
-terminal ADICAO, SUBTRACAO, MULTIPLICACAO, DIVISAO;
-terminal INTERROGACAO, DOIS_PONTOS;
-
+/* Terminais (tokens retornados pelo scanner) */
+terminal CLASS, EXTENDS;
+terminal PUBLIC, STATIC, VOID, MAIN;
+terminal RETURN, IF, ELSE, WHILE;
+terminal TRUE, FALSE, THIS, NEW;
+terminal INT, BOOLEAN, STRING;
+terminal INTEGER;
+terminal ID;
+terminal ATRIBUICAO;
+terminal E;              // &&
+terminal MENOR;          // <
+terminal ADICAO;         // +
+terminal SUBTRACAO;      // -
+terminal MULTIPLICACAO;  // *
+terminal NAO;            // !
 terminal PONTO_VIRGULA, VIRGULA, PONTO;
 terminal ABRE_PARENTESES, FECHA_PARENTESES;
 terminal ABRE_CHAVES, FECHA_CHAVES;
 terminal ABRE_COLCHETES, FECHA_COLCHETES;
+terminal ERRO;
 
-terminal OPERACAO;
-terminal ERRO;    
+/* Não-Terminais */
+non terminal Goal;
+non terminal MainClass;
+non terminal ClassDeclaration;
+non terminal VarDeclaration;
+non terminal MethodDeclaration;
+non terminal Type;
+non terminal Statement;
+non terminal Expression;
 
+/* Novos Não-Terminais Auxiliares para Listas (Substituindo o *) */
+non terminal ClassDeclarationList;
+non terminal VarDeclarationList;
+non terminal MethodDeclarationList;
+non terminal StatementList;
+non terminal FormalParamList, FormalParamRest;
+non terminal ExpressionList, ExpressionRest;
 
-/* ----------------------------------------------------------------------------
-   Declaração dos NÃO Terminais
----------------------------------------------------------------------------- */
-non terminal Object program;
+/* Precedência */
+precedence left E;
+precedence left MENOR;
+precedence left ADICAO, SUBTRACAO;
+precedence left MULTIPLICACAO;
+precedence right NAO;
 
+start with Goal;
 
-/* ----------------------------------------------------------------------------
-   Declaração das regras da gramática 
----------------------------------------------------------------------------- */
-start with program;
+/* ================= REGRAS DA GRAMÁTICA ================= */
 
-program ::= /* Regra vazia por enquanto */ ;
+/* Substituído (ClassDeclaration)* por ClassDeclarationList */
+Goal ::= 
+      MainClass
+      ;
+
+ClassDeclarationList ::= 
+      ClassDeclarationList ClassDeclaration
+    | /* vazio */
+    ;
+
+MainClass	::=	CLASS ID ABRE_CHAVES
+                     PUBLIC STATIC VOID MAIN ABRE_PARENTESES
+                           STRING ABRE_COLCHETES FECHA_COLCHETES ID
+                        FECHA_PARENTESES 
+                           ABRE_CHAVES
+                           FECHA_CHAVES
+                        FECHA_CHAVES
+   ;

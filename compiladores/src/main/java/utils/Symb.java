@@ -6,30 +6,19 @@ public enum Symb {
     EXTENDS("EXTENDS"),
     PUBLIC("PUBLIC"),
     STATIC("STATIC"),
-    NATIVE("NATIVE"),
     VOID("VOID"),
     MAIN("MAIN"),
-    RETURN("RETURN"),       
+    RETURN("RETURN"),
     IF("IF"),
     ELSE("ELSE"),
     WHILE("WHILE"),
-    DO("DO"),
-    FOR("FOR"),
-    BREAK("BREAK"),
-    CONTINUE("CONTINUE"),
     THIS("THIS"),
-    SUPER("SUPER"),
     NEW("NEW"),
     PRIMITIVO("PRIMITIVO TIPO"),
-    NULL("NULL"),
     TRUE("TRUE"),
     FALSE("FALSE"),
-    ARRAY("ARRAY"),
-    CLASSNAME("CLASSNAME"),
     /* Literais */
     INTEGER("INTEGER"),
-    CHAR("CHAR"),
-    STRING("STRING"),
 
     /* Identificador */
     ID("ID"),
@@ -37,20 +26,11 @@ public enum Symb {
     /* Operadores */
     ATRIBUICAO("ATRIBUICAO"), // =
     E("E"), // &&
-    OU("OU"), // ||
     NAO("NAO"), // !
     MENOR("MENOR"), // <
-    MENOR_OU_IGUAL("MENOR_OU_IGUAL"), // <=
-    MAIOR("MAIOR"), // >
-    MAIOR_OU_IGUAL("MAIOR_OU_IGUAL"), // >=
-    IGUAL("IGUAL"), // ==
-    DIFERENTE("DIFERENTE"), // !=
     ADICAO("ADICAO"), // +
     SUBTRACAO("SUBTRACAO"), // -
     MULTIPLICACAO("MULTIPLICACAO"), // *
-    DIVISAO("DIVISAO"), // /
-    INTERROGACAO("INTERROGACAO"), // ?
-    DOIS_PONTOS("DOIS_PONTOS"), // :
 
     /* Delimitadores e símbolos */
     PONTO_VIRGULA("PONTO_VIRGULA"), // ;
@@ -68,7 +48,7 @@ public enum Symb {
     OPERACAO("OPERACAO"),
     /* Fim de arquivo */
     EOF("EOF"),
-     /* Erro ao encontrar token */
+    /* Erro ao encontrar token */
     ERRO("ERRO");
 
     private final String tokenName;

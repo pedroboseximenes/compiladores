@@ -5,13 +5,16 @@ import java.io.PrintWriter;
 
 import com.compiladores.ParserMiniJava;
 
+import java_cup.runtime.ComplexSymbolFactory;
 import java_cup.runtime.Symbol;
+import java_cup.runtime.SymbolFactory;
 import utils.Symb;
 import utils.Token;
+
 public class Main {
 
-    private static final int QUANTIDADE_TESTE_MINI_JAVA = 7;
-    private static final int QUANTIDADE_TESTE_CALCULADORA = 3;
+    private static final int QUANTIDADE_TESTE_MINI_JAVA = 1;
+    private static final int QUANTIDADE_TESTE_CALCULADORA = 0;
 
     public static void main(String[] args) {
         if (args.length < 1) {
@@ -19,21 +22,30 @@ public class Main {
             System.exit(1);
         }
         Token token;
-        Symbol simbolo;
         String nomeArquivo;
         for (int i = 0; i < QUANTIDADE_TESTE_MINI_JAVA; i++) {
             nomeArquivo = "src/main/saida/saidaMiniJava0" + (i + 1) + ".txt";
+
             try (PrintWriter pw = new PrintWriter(new FileWriter(nomeArquivo))) {
+
                 MiniJava lexer = new MiniJava(new FileReader(args[i]));
-                ParserMiniJava t = new ParserMiniJava(lexer);
-                pw.printf("%s%n", " Valor");
+                // SymbolFactory sf = new ComplexSymbolFactory();
+                ParserMiniJava parser = new ParserMiniJava(lexer);
+
+                pw.printf("%s%n", "Resultado do Parser MiniJava");
                 pw.printf("%s%n", "-".repeat(60));
-                while ((simbolo = lexer.next_token()) != null) {
-                    pw.printf("'%s'%n", simbolo.sym);
-                    if (simbolo.sym == 0) {
-                        break;
-                    }
-                }
+
+                // while ((simbolo = lexer.next_token()) != null) {
+                // pw.printf("'%s'%n", simbolo.sym);
+                // if (simbolo.sym == 0) {
+                // break;
+                // }
+                // }
+
+                Symbol resultado = parser.parse();
+
+                pw.println("Parse concluído. AST/resultado: " + resultado.value);
+
             } catch (Exception e) {
                 e.printStackTrace();
             }
