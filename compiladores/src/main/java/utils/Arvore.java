@@ -27,10 +27,7 @@ public class Arvore {
 
     public void imprimir(PrintWriter pw) {
         pw.println(this.nome + (this.valor != null ? ": " + this.valor : ""));
-        
-        // Começa a recursão para os filhos
         for (int i = 0; i < filhos.size(); i++) {
-            // Verifica se é o último filho da lista para escolher o conector
             boolean isLast = (i == filhos.size() - 1);
             filhos.get(i).imprimirRecursivo("", isLast, pw);
         }
@@ -38,21 +35,13 @@ public class Arvore {
     }
 
     private void imprimirRecursivo(String prefix, boolean isLast, PrintWriter pw) {
-        // 1. Define os conectores
-        // Se for o último filho, usa "└── ", senão "├── "
         String connector = isLast ? "└── " : "├── ";
-        
-        // 2. Imprime o nó atual
         pw.print(prefix);
         pw.print(connector);
         pw.println(this.nome + (this.valor != null ? ": " + this.valor : ""));
 
-        // 3. Prepara o prefixo para os filhos DESTE nó
-        // Se este nó foi o último (└──), os filhos dele não precisam desenhar a linha vertical (|)
-        // Se este nó NÃO foi o último (├──), os filhos precisam continuar desenhando a linha vertical (│)
-        String childPrefix = prefix + (isLast ? "    " : "│   ");
 
-        // 4. Chama recursivamente para os filhos
+        String childPrefix = prefix + (isLast ? "    " : "│   ");
         for (int i = 0; i < filhos.size(); i++) {
             boolean isLastChild = (i == filhos.size() - 1);
             filhos.get(i).imprimirRecursivo(childPrefix, isLastChild, pw);
