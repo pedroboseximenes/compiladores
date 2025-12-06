@@ -1,4 +1,4 @@
-Resultado do LEXER com os Tokens MiniJava
+Resultado do LEXER com os Tokens Calculadora
 ------------------------------------------------------------
 <linha,coluna>  [Tipo]                     Valor
 ------------------------------------------------------------

@@ -16,6 +16,6 @@ class Loop {
             vetor[i] = i * 2;
             i = i + 1;
         }
-        return vetor[4]; // Retorna o último elemento
+        return vetor[4];
     }
 }

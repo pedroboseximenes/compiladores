@@ -97,19 +97,74 @@ Resultado do LEXER com os Tokens MiniJava
 '4'
 ']'
 ';'
-'/'
-'/'
-'Retorna'
-'o'
-'ú'
-'ltimo'
-'elemento'
 '}'
 '}'
 'EOF'
 Resultado do Parser MiniJava
 ------------------------------------------------------------
-Parse com erro. Erro em: 
+Parse concluído com SUCESSO. AST/resultado: 
 ------------------------------------------------------------
-Erro sintático na linha 20, coluna 27. Token inesperado: /
-Erro fatal (irrecuperável) na linha 20
+Goal
+├── MainClass
+│   ├── ID_Class: Good4
+│   ├── Args: args
+│   └── Print
+│       └── CallMethod
+│           ├── NewObject
+│           │   └── ID: Loop
+│           └── ID: executa
+└── ClassDeclarationList
+    └── ClassDeclaration
+        ├── ID: Loop
+        ├── VarDeclarationList
+        └── MethodDeclarationList
+            └── MethodDeclaration
+                ├── Type: int
+                ├── ID: executa
+                ├── NoParams
+                ├── VarDeclarationList
+                │   ├── VarDeclaration
+                │   │   ├── Type: int[]
+                │   │   └── ID: vetor
+                │   ├── VarDeclaration
+                │   │   ├── Type: int
+                │   │   └── ID: i
+                │   └── VarDeclaration
+                │       ├── Type: int
+                │       └── ID: tam
+                ├── StatementList
+                │   ├── Atribuicao
+                │   │   ├── ID: tam
+                │   │   └── Integer: 5
+                │   └── StatementList
+                │       ├── Atribuicao
+                │       │   ├── ID: vetor
+                │       │   └── NewIntArray
+                │       │       └── ID: tam
+                │       └── StatementList
+                │           ├── Atribuicao
+                │           │   ├── ID: i
+                │           │   └── Integer: 0
+                │           └── StatementList
+                │               └── While
+                │                   ├── Menor
+                │                   │   ├── ID: i
+                │                   │   └── ID: tam
+                │                   └── Block
+                │                       └── StatementList
+                │                           ├── AtribuicaoArray
+                │                           │   ├── ID: vetor
+                │                           │   ├── ID: i
+                │                           │   └── Multiplicacao
+                │                           │       ├── ID: i
+                │                           │       └── Integer: 2
+                │                           └── StatementList
+                │                               └── Atribuicao
+                │                                   ├── ID: i
+                │                                   └── Soma
+                │                                       ├── ID: i
+                │                                       └── Integer: 1
+                └── Return
+                    └── ArrayAccess
+                        ├── ID: vetor
+                        └── Integer: 4

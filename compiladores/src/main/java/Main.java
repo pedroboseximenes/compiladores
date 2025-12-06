@@ -67,7 +67,7 @@ public class Main {
             nomeArquivo = "src/main/saida/saidaCalculadora0" + (j + 1) + ".txt";
             try (PrintWriter pw = new PrintWriter(new FileWriter(nomeArquivo))) {
                 Calculadora lexer = new Calculadora(new FileReader(args[j + QUANTIDADE_TESTE_MINI_JAVA]));
-                pw.printf("%s%n", "Resultado do LEXER com os Tokens MiniJava");
+                pw.printf("%s%n", "Resultado do LEXER com os Tokens Calculadora");
                 pw.printf("%s%n", "-".repeat(60));
                 pw.printf("%-15s %-25s %s%n", "<linha,coluna>", "[Tipo]", " Valor");
                 pw.printf("%s%n", "-".repeat(60));

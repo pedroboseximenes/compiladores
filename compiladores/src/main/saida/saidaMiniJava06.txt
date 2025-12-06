@@ -85,5 +85,5 @@ Resultado do Parser MiniJava
 ------------------------------------------------------------
 Parse com erro. Erro em: 
 ------------------------------------------------------------
-Erro sintático na linha 13, coluna 14. Token inesperado: (
+Erro sintático na linha 13, coluna 8. Token inesperado: (
 Erro fatal (irrecuperável) na linha 13
